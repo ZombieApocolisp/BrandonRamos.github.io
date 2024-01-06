@@ -1,1 +1,107 @@
+/* ========= FONT CSS ========= */
+h1.hero-text {
+    font-weight: 300;
+}
 
+
+
+/* ========= BASE CSS SETUP ========= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+}
+
+section {
+    margin: 0px auto;
+    width: 100%;
+}
+
+.container {
+    display: grid;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.col {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+
+
+/* ========= HEADER CSS ========= */
+
+section#header {
+    position: fixed;
+    background: transparent;
+}
+
+section#header > .container {
+    grid-template-columns: 33.33333% 1fr;
+    grid-template-rows: 1fr;
+    max-width: 95%;
+    margin: 0px auto;
+}
+
+.col.logo-col {
+    justify-content: center;
+}
+
+img.logo {
+    width: 120px;
+    height: 120px;
+}
+
+nav#site-navigation {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+li.menu-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+li.menu-item a {
+    text-transform: uppercase;
+    margin: 0px 20px;
+    padding: 12px 12px;
+    color: #fff;
+}
+
+
+
+/* ========= HERO SECTION CSS ========= */
+
+section#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background: #7f978c;
+}
+
+section#hero > .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.spacer {
+    height: 100%;
+}
