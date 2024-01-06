@@ -1,4 +1,9 @@
 /* ========= FONT CSS ========= */
+h1, h2, h3, h4, h5, h6, p, a, div, nav {
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+}
+
 h1.hero-text {
     font-weight: 300;
 }
@@ -11,8 +16,6 @@ h1.hero-text {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Montserrat", sans-serif;
-    text-decoration: none;
 }
 
 body {
