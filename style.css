@@ -6,7 +6,19 @@
     padding: 0;
 }
 
+header {
+    position: relative;
+    margin: 0px auto;
+    width: 100%;
+}
+
 section {
+    position: relative;
+    margin: 0px auto;
+    width: 100%;
+}
+
+footer {
     position: relative;
     margin: 0px auto;
     width: 100%;
@@ -14,10 +26,13 @@ section {
 
 .container {
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     position: relative;
     max-width: 1200px;
     width: 100%;
     margin: 0px auto;
+    padding: 60px 0px;
 }
 
 .col {
@@ -86,23 +101,24 @@ p {
 
 /* ========= HEADER CSS ========= */
 
-section#header {
+header#header {
     position: absolute;
     background: transparent;
     z-index: 9999;
 }
 
-section#header > .container {
+header#header > .container {
     grid-template-columns: 33.33333% 1fr;
     grid-template-rows: 1fr;
     max-width: 95%;
+    padding: 10px 0px;
 }
 
 .col.logo-col {
     justify-content: center;
 }
 
-img.logo {
+.logo-col > img.logo {
     width: 80px;
     height: 80px;
 }
@@ -158,7 +174,6 @@ section#hero > .background-overlay {
 section#hero > .container {
     grid-template-columns: 1fr 33.33333%;
     grid-template-rows: 1fr;
-    max-width: 1200px;
     bottom: 120px;
 }
 
@@ -228,8 +243,89 @@ section#about {
     align-items: center;
 }
 
-section#about > .container {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    padding: 60px 0px;
+
+
+/* ========= CALL TO ACTION SECTION CSS ========= */
+
+section#cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #7f978c;
+    background-image: url("images/cta_background-image.jpg");
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2.cta-text_sub {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1em;
+    word-spacing: 3px;
+    position: relative;
+    padding: 5px 10px;
+    background-color: rgba(255,255,255,.85);
+    mix-blend-mode: screen;
+}
+
+h2.cta-text_sub::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -14px;
+    height: 28px;
+    width: 14px;
+    clip-path: polygon(0 0, 0% 100%, 60% 50%);
+    background-color: rgba(255,255,255,.85);
+}
+
+h2.cta-text_sub::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -42px;
+    height: 28px;
+    width: 28px;
+    clip-path: polygon(0 0, 75% 0%, 100% 50%, 75% 100%, 0 100%, 25% 50%);
+    background-color: rgba(255,255,255,.85);
+}
+
+h2.cta-text_main {
+    font-family: "Teko", sans-serif;
+    font-size: 136px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-top: 20px;
+    color: #e2c4a2;
+    mix-blend-mode: overlay;
+    filter: brightness(110%) contrast(200%);
+}
+
+p.cta-text_body {
+    color: #fff;
+}
+
+
+
+/* ========= FOOTER SECTION CSS ========= */
+
+footer#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer#footer > .container {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+footer#footer .col {
+    align-items: center;
 }
