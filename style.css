@@ -6,28 +6,27 @@
     padding: 0;
 }
 
-header {
+header, section, footer {
     position: relative;
     margin: 0px auto;
     width: 100%;
 }
 
-section {
-    position: relative;
-    margin: 0px auto;
-    width: 100%;
-}
-
-footer {
-    position: relative;
-    margin: 0px auto;
-    width: 100%;
-}
-
-.container {
+.grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
+}
+
+.flex {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 20px;
+}
+
+.container {
     position: relative;
     max-width: 1200px;
     width: 100%;
@@ -36,10 +35,7 @@ footer {
 }
 
 .col {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+    width: 100%;
 }
 
 .background-overlay {
@@ -61,6 +57,8 @@ h1, h2, h3, h4, h5, h6, p, a, div, nav {
     letter-spacing: normal;
     word-spacing: normal;
     line-height: 1em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -114,7 +112,7 @@ header#header > .container {
     padding: 10px 0px;
 }
 
-.col.logo-col {
+.logo-col {
     justify-content: center;
 }
 
@@ -124,14 +122,13 @@ header#header > .container {
 }
 
 nav#site-navigation {
-    display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
     align-items: center;
+    column-gap: 20px;
 }
 
 li.menu-item {
-    display: flex;
     justify-content: center;
     align-items: center;
     list-style-type: none;
@@ -141,7 +138,6 @@ li.menu-item a {
     font-family: "Teko", sans-serif;
     font-size: 18px;
     text-transform: uppercase;
-    margin: 0px 20px;
     padding: 12px 12px;
     color: #fff;
 }
@@ -151,7 +147,6 @@ li.menu-item a {
 /* ========= HERO SECTION CSS ========= */
 
 section#hero {
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -163,7 +158,14 @@ section#hero {
     background-size: cover;
 }
 
-section#hero > .background-overlay {
+section#hero::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: linear-gradient(
         180deg,
         rgba(255,255,255,0) 50%,
@@ -186,6 +188,7 @@ h1.hero-text_sub {
     word-spacing: 3px;
     position: relative;
     padding: 5px 10px;
+    box-shadow: 0px 0px 15px #00000066;
     background-color: rgba(255,255,255,.85);
     mix-blend-mode: screen;
 }
@@ -219,7 +222,7 @@ h2.hero-text_main {
     font-size: 136px;
     font-weight: 700;
     text-transform: uppercase;
-    padding-top: 20px;
+    text-shadow: 0px 0px 15px #00000066;
     color: #e2c4a2;
     mix-blend-mode: overlay;
     filter: brightness(110%) contrast(200%);
@@ -238,7 +241,6 @@ p.hero-text_body {
 /* ========= ABOUT SECTION CSS ========= */
 
 section#about {
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -248,7 +250,6 @@ section#about {
 /* ========= CALL TO ACTION SECTION CSS ========= */
 
 section#cta {
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -260,6 +261,21 @@ section#cta {
     background-size: cover;
 }
 
+section#cta::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        180deg,
+        rgba(255,255,255,0) 66%,
+        rgba(255,255,255,1) 100%
+    );
+}
+
 h2.cta-text_sub {
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
@@ -269,6 +285,7 @@ h2.cta-text_sub {
     word-spacing: 3px;
     position: relative;
     padding: 5px 10px;
+    box-shadow: 0px 0px 15px #00000066;
     background-color: rgba(255,255,255,.85);
     mix-blend-mode: screen;
 }
@@ -302,7 +319,7 @@ h2.cta-text_main {
     font-size: 136px;
     font-weight: 700;
     text-transform: uppercase;
-    padding-top: 20px;
+    text-shadow: 0px 0px 15px #00000066;
     color: #e2c4a2;
     mix-blend-mode: overlay;
     filter: brightness(110%) contrast(200%);
@@ -317,7 +334,6 @@ p.cta-text_body {
 /* ========= FOOTER SECTION CSS ========= */
 
 footer#footer {
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -326,6 +342,23 @@ footer#footer > .container {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-footer#footer .col {
+footer#footer > .container > .col {
     align-items: center;
+}
+
+footer#footer h6 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.container.social-media {
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    padding: 0px;
+}
+
+.github_svg, .instagram_svg {
+    height: 1.25rem;
 }
