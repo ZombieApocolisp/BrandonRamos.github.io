@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko|Cabin">
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="js/project-carousel.js" async></script>
     <title>Brandon Ramos | Web Developer</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
         <div class="container grid">
             <div class="col logo-col flex">
                 <a href="https://zombieapocolisp.github.io/">
-                    <img class="logo" src="images/portrait-shot-logo_circle.png" alt="Website Logo" height="80px" width="80px">
+                    <img class="logo" src="images/portrait-shot-logo_circle.png" alt="Website Logo" height="auto" width="auto">
                 </a>
             </div>
             <nav id="site-navigation" class="flex">
@@ -23,48 +24,61 @@
             </nav>
         </div>
     </header>
-    <section id="hero" class="flex">
-        <div class="container grid">
-            <div class="col flex">
-                <h1 class="hero-text_sub">A web developer trekking the digital realm</h1>
-                <h2 class="hero-text_main">For the next grand adventure</h2>
-                <!-- <p class="hero-text_body">Continue scrolling to discover my past projects as a front & back-end web developer.</p> -->
+    <main id="main">
+        <section id="hero" class="flex">
+            <div class="container grid">
+                <div class="col flex">
+                    <h1 class="hero-text_sub">A web developer trekking the digital realm</h1>
+                    <h2 class="hero-text_main">For the next grand adventure</h2>
+                    <!-- <p class="hero-text_body">Continue scrolling to discover my past projects as a front & back-end web developer.</p> -->
+                </div>
+                <div class="col flex">
+                    <div class="spacer"></div>
+                </div>
             </div>
-            <div class="col flex">
-                <div class="spacer"></div>
+        </section>
+        <section class="clouds">
+            <div class="container grid">
+                <div class="col flex">
+                    <div class="spacer"></div>
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="clouds">
-        <div class="container grid">
-            <div class="col flex">
-                <div class="spacer"></div>
+        </section>
+        <section id="about" class="flex">
+            <div class="container grid">
+                <div class="col flex">
+                    <img id="compass" src="images/compass.png" alt="Compass Image" height="auto" width="auto">
+                </div>
+                <div class="col flex" onscroll="handleScroll()">
+                    <div id="projects-carousel">
+                        <ul class="projects-carousel_track">
+                            <li class="project_item"><a href="#" target="_blank">Some text about who I am and what this website is looking to accomplish.</a></li>
+                            <li class="project_item"><a href="#" target="_blank">Some text about who I am and what this website is looking to accomplish.</a></li>
+                            <li class="project_item current-item"><a href="#" target="_blank">Some text about who I am and what this website is looking to accomplish.</a></li>
+                            <li class="project_item"><a href="#" target="_blank">Some text about who I am and what this website is looking to accomplish.</a></li>
+                            <li class="project_item"><a href="#" target="_blank">Some text about who I am and what this website is looking to accomplish.</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-    <section id="about" class="flex">
-        <div class="container grid">
-            <div class="col flex">
-                <p>Some text about who I am and what this website is looking to accomplish.</p>
+        </section>
+        <section class="paper-tear">
+            <div class="container grid">
+                <div class="col flex">
+                    <div class="spacer"></div>
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="paper-tear">
-        <div class="container grid">
-            <div class="col flex">
-                <div class="spacer"></div>
+        </section>
+        <section id="cta" class="flex">
+            <div class="container grid">
+                <div class="col flex">
+                    <h2 class="cta-text_sub">Let's work to improve the web</h2>
+                    <h2 class="cta-text_main">and experience its full potential together</h2>
+                    <!-- <p class="cta-text_body">You can contact me by email or through any of the following social media platforms.</p> -->
+                </div>
             </div>
-        </div>
-    </section>
-    <section id="cta" class="flex">
-        <div class="container grid">
-            <div class="col flex">
-                <h2 class="cta-text_sub">Let's work to improve the web</h2>
-                <h2 class="cta-text_main">and experience its full potential together</h2>
-                <!-- <p class="cta-text_body">You can contact me by email or through any of the following social media platforms.</p> -->
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <footer id="footer" class="flex">
         <div class="container grid">
             <div class="col flex">
