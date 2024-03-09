@@ -238,6 +238,22 @@ p.hero-text_body {
 
 
 
+/* ========= CLOUDS SECTION CSS ========= */
+section.clouds {
+    margin-top: -350px;
+    background-image: url("images/clouds.png");
+    background-position: top center;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section.clouds .spacer {
+    height: 350px;
+}
+
+
+
 /* ========= ABOUT SECTION CSS ========= */
 
 section#about {

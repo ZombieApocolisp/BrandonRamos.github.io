@@ -25,10 +25,18 @@ projectItems.forEach(slide => {
 });
 
 
-function rotateCompass(index) {
-    let angle = (360 / 5) * index;
-    compass.style.transform = 'rotate(' + angle + 'deg)';
+function rotateCompass() {
+    projectItems.forEach(slide => {
+        let classCheck = slide.classList.contains('current-item');
+        if (classCheck == true) {
+            let index = projectItems.indexOf(slide);
+            let angle = (180 / 5) * index;
+            compass.style.transform = 'rotate(' + angle + 'deg)';
+        }
+    });
 }
+
+rotateCompass();
 
 function handleScroll() {
     // Get the scroll position
