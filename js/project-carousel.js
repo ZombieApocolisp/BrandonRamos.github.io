@@ -1,50 +1,66 @@
-const compass = document.getElementById('compass');
-const projectCarouselTrack = document.querySelector('.projects-carousel_track');
-let projectItems = Array.from(document.getElementsByClassName('project_item'));
-
-console.log(compass);
-console.log(projectCarouselTrack);
-console.log(projectItems);
-
-let clonesHeight;
-let trackHeight;
-let projectItemClones = [];
-
-projectItems.forEach(slide => {
-    let clone = slide.cloneNode(true);
-    clone.classList.add('duplicate');
-
-    projectCarouselTrack.appendChild(clone);
-
-    let classCheck = clone.classList.contains('current-item');
-    if (classCheck == true) {
-        clone.classList.remove('current-item');
-    };
-
-    projectItems.push(clone);
+document.addEventListener('DOMContentLoaded', () => {
+  const projectCarousel = document.getElementById('projects-carousel');
+  projectCarousel.addEventListener('scroll', throttle(handleScroll, 200));
+  initCarousel();
+  updateCompass();
 });
 
+function initCarousel() {
+  const projectCarouselTrack = document.querySelector(
+    '.projects-carousel-track'
+  );
+  const projectItems = Array.from(
+    document.getElementsByClassName('project-item')
+  );
+  const fragment = document.createDocumentFragment();
 
-function rotateCompass() {
-    projectItems.forEach(slide => {
-        let classCheck = slide.classList.contains('current-item');
-        if (classCheck == true) {
-            let index = projectItems.indexOf(slide);
-            let angle = (180 / 5) * index;
-            compass.style.transform = 'rotate(' + angle + 'deg)';
-        }
-    });
+  projectItems.forEach((item) => {
+    const clone = item.cloneNode(true);
+    clone.classList.add('duplicate');
+    clone.classList.remove('current-item');
+    fragment.appendChild(clone);
+  });
+
+  projectCarouselTrack.appendChild(fragment);
 }
 
-rotateCompass();
+function updateCompass() {
+  const compass = document.getElementById('compass');
+  const projectItems = Array.from(
+    document.getElementsByClassName('project-item')
+  );
+  const activeItem = projectItems.find((item) =>
+    item.classList.contains('current-item')
+  );
+  if (activeItem) {
+    const index = projectItems.indexOf(activeItem);
+    const angle = (180 / projectItems.length) * index;
+    compass.style.transform = `rotate(${angle}deg)`;
+  }
+}
+
+function handleScrollEvents() {
+  const projectCarouselTrack = document.querySelector(
+    '.projects-carousel-track'
+  );
+  projectCarouselTrack.addEventListener('scroll', throttle(handleScroll, 200));
+}
 
 function handleScroll() {
-    // Get the scroll position
-    var scrollPosition = projectCarouselTrack.scrollTop;
+  const compass = document.getElementById('compass');
+  const scrollPosition = this.scrollTop;
+  const rotationAngle = (360 / 400) * scrollPosition;
+  compass.style.transform = `rotate(${rotationAngle}deg)`;
+}
 
-    // Calculate the rotation angle based on the scroll position
-    var rotationAngle = (360 / 400) * scrollPosition;
-
-    // Apply the rotation to the compass
-    compass.style.transform = 'rotate(' + rotationAngle + 'deg)';
+function throttle(fn, delay) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = new Date().getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return fn.apply(this, args);
+  };
 }
