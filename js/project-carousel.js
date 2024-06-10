@@ -1,50 +1,175 @@
 const compass = document.getElementById('compass');
-const projectCarouselTrack = document.querySelector('.projects-carousel_track');
+const projectCarousel = document.getElementById('project-carousel');
+const projectCarouselTrack = document.querySelector('ul.project-carousel_track');
 let projectItems = Array.from(document.getElementsByClassName('project_item'));
+let currentItem = document.getElementsByClassName('current-item');
+const prevButton = document.querySelector('.prev-button');
+const nextButton = document.querySelector('.next-button');
 
-console.log(compass);
-console.log(projectCarouselTrack);
-console.log(projectItems);
+// console.log(compass);
+// console.log(projectCarousel);
+// console.log(projectCarouselTrack);
+// console.log(projectItems);
 
 let clonesHeight;
 let trackHeight;
-let projectItemClones = [];
 
-projectItems.forEach(slide => {
-    let clone = slide.cloneNode(true);
-    clone.classList.add('duplicate');
+// Creates a slide clone, adds a class to it and removes the "current-item", "prev-item", and "next-item" classes if available, then appends that clone/duplicate back into the projectItems array.
+// Also increases the scale of the element with a class list containing 'current-item' as one of its classes.
 
-    projectCarouselTrack.appendChild(clone);
 
-    let classCheck = clone.classList.contains('current-item');
-    if (classCheck == true) {
-        clone.classList.remove('current-item');
+// projectItems.forEach(slide => {
+//     let currentSlide = slide.classList.contains('current-item');
+//     let nextSlide = slide.classList.contains('next-item');
+//     let prevSlide = slide.classList.contains('prev-item');
+//     let clone = slide.cloneNode(true);
+//     clone.classList.add('duplicate');
+
+//     while (currentSlide == true) {
+// // do something to the current slide.
+//         slide.style.transform = "scale(1.1)";
+//         clone.classList.remove('current-item');
+//         break;
+//     };
+
+//     while (nextSlide == true) {
+//         clone.classList.remove('next-item');
+//         break;
+//     }
+
+//     while (prevSlide == true) {
+//         slide.classList.remove('prev-item');
+//         break;
+//     }
+
+//     projectCarouselTrack.appendChild(clone);
+//     projectItems.push(clone);
+// });
+
+// console.log(projectItems);
+
+// let nextSlide = slide[1].classList.contains('prev-item');
+
+
+
+const firstItemIndex = 0;
+const lastItemIndex = projectItems.length - 1;
+console.log(lastItemIndex);
+let activeItem = 0;
+// console.log(activeItem);
+
+
+// Button Controls
+const goToPrevItem = () => {
+    let prevItem = activeItem - 1;
+    let nextItem = activeItem + 1;
+
+    projectItems.forEach(item => {
+        item.classList.remove('prev-item', 'current-item', 'next-item');
+    });
+
+    if (activeItem === firstItemIndex) {
+        projectItems[firstItemIndex].classList.add('next-item');
+        projectItems[lastItemIndex].classList.add('current-item');
+
+        activeItem = lastItemIndex;
+        prevItem = activeItem - 1;
+        nextItem = firstItemIndex;
+        projectItems[prevItem].classList.add('prev-item');
+    } else if (activeItem === lastItemIndex) {
+        projectItems[lastItemIndex].classList.add('next-item');
+        projectItems[prevItem].classList.add('current-item');
+
+        activeItem = lastItemIndex - 1;
+        prevItem = activeItem - 1;
+        nextItem = lastItemIndex;
+        projectItems[prevItem].classList.add('prev-item');
+    } else {
+        projectItems[prevItem].classList.add('current-item');
+        projectItems[activeItem].classList.add('next-item');
+
+        activeItem = prevItem;
+        
+        if (prevItem === firstItemIndex) {
+            prevItem = lastItemIndex;
+        } else {
+            prevItem = activeItem - 1;
+        }
+
+        nextItem = activeItem + 1;
+        projectItems[prevItem].classList.add('prev-item');
     };
+};
 
-    projectItems.push(clone);
-});
+const goToNextItem = () => {
+    let prevItem = activeItem - 1;
+    let nextItem = activeItem + 1;
+
+    projectItems.forEach(item => {
+        item.classList.remove('prev-item', 'current-item', 'next-item');
+    });
+
+    if (activeItem === firstItemIndex) {
+        projectItems[firstItemIndex].classList.add('prev-item');
+        projectItems[nextItem].classList.add('current-item');
+
+        activeItem = nextItem;
+        prevItem = firstItemIndex;
+        nextItem = activeItem + 1;
+        projectItems[nextItem].classList.add('next-item');
+    } else if (activeItem === lastItemIndex) {
+        projectItems[firstItemIndex].classList.add('current-item');
+        projectItems[lastItemIndex].classList.add('prev-item');
+
+        activeItem = firstItemIndex;
+        prevItem = lastItemIndex;
+        nextItem = activeItem + 1;
+        projectItems[nextItem].classList.add('next-item');
+        // console.log(activeItem);
+        // console.log(prevItem);
+        // console.log(nextItem);
+    } else {
+        projectItems[activeItem].classList.add('prev-item');
+        projectItems[nextItem].classList.add('current-item');
+
+        activeItem = nextItem;
+        
+        if (nextItem === lastItemIndex) {
+            nextItem = firstItemIndex;
+        } else {
+            nextItem = activeItem + 1;
+        }
+
+        projectItems[nextItem].classList.add('next-item');
+        prevItem = activeItem - 1;
+    };
+};
 
 
 function rotateCompass() {
     projectItems.forEach(slide => {
         let classCheck = slide.classList.contains('current-item');
+
         if (classCheck == true) {
             let index = projectItems.indexOf(slide);
-            let angle = (180 / 5) * index;
+            let itemsTotal = projectItems.length;
+            let angle = (360 / itemsTotal) * index;
             compass.style.transform = 'rotate(' + angle + 'deg)';
         }
     });
-}
+};
 
-rotateCompass();
+prevButton.addEventListener("click", goToPrevItem);
+nextButton.addEventListener("click", goToNextItem);
 
-function handleScroll() {
-    // Get the scroll position
-    var scrollPosition = projectCarouselTrack.scrollTop;
+// function handleScroll() {
+//     // Get the scroll position
+//     var scrollPosition = projectCarouselTrack.scrollTop;
+//     console.log(scrollPosition);
 
-    // Calculate the rotation angle based on the scroll position
-    var rotationAngle = (360 / 400) * scrollPosition;
+//     // Calculate the rotation angle based on the scroll position
+//     var rotationAngle = (360 / 400) * scrollPosition;
 
-    // Apply the rotation to the compass
-    compass.style.transform = 'rotate(' + rotationAngle + 'deg)';
-}
+//     // Apply the rotation to the compass
+//     compass.style.transform = 'rotate(' + rotationAngle + 'deg)';
+// }
