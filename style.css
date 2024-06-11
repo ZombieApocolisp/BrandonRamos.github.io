@@ -644,6 +644,10 @@ p.cta-text_body {
 }
 
 @media only screen and (max-width: 1024px) {
+    section#cta {
+        background-position: 77% center;
+    }
+
     h2.cta-text_main {
         font-size: 112px;
     }
