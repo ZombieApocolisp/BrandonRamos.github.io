@@ -99,6 +99,8 @@ const goToPrevItem = () => {
         nextItem = activeItem + 1;
         projectItems[prevItem].classList.add('prev-item');
     };
+
+    rotateCompass();
 };
 
 const goToNextItem = () => {
@@ -143,8 +145,9 @@ const goToNextItem = () => {
         projectItems[nextItem].classList.add('next-item');
         prevItem = activeItem - 1;
     };
-};
 
+    rotateCompass();
+};
 
 function rotateCompass() {
     projectItems.forEach(slide => {
@@ -155,7 +158,7 @@ function rotateCompass() {
             let itemsTotal = projectItems.length;
             let angle = (360 / itemsTotal) * index;
             compass.style.transform = 'rotate(' + angle + 'deg)';
-        }
+        };
     });
 };
 

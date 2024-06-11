@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+body {
+    width: 100vw;
+}
+
 header, section, footer {
     position: relative;
     margin: 0px auto;
@@ -31,7 +35,8 @@ header, section, footer {
     max-width: 1200px;
     width: 100%;
     margin: 0px auto;
-    padding: 60px 0px;
+    padding: 60px 20px;
+    transition: all .3s ease;
 }
 
 .col {
@@ -44,11 +49,24 @@ header, section, footer {
     width: 100%;
 }
 
+@media only screen and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+        padding: 60px 0px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
 
 
 /* ========= FONT CSS ========= */
 
-h1, h2, h3, h4, h5, h6, p, a, div {
+h1, h2, h3, h4, h5, h6, p, a, div, button {
     font-family: "Montserrat", sans-serif;
     font-size: 1em;
     font-weight: normal;
@@ -61,10 +79,11 @@ h1, h2, h3, h4, h5, h6, p, a, div {
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, button {
     font-family: "Teko", sans-serif;
     font-weight: 700;
     line-height: 0.75em;
+    transition: .3s ease;
 }
 
 h1 {
@@ -93,6 +112,24 @@ h6 {
 
 p {
     font-size: 16px;
+}
+
+button {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+
+}
+
+
+
+/* ========= BUTTON STYLES CSS ========= */
+.text-btn:hover {
+    background: rgba(255,255,255,.5);
 }
 
 
@@ -144,6 +181,14 @@ li.menu-item a {
 
 
 
+@media only screen and (max-width: 767px) {
+    nav#site-navigation {
+        column-gap: 10px;
+    }
+}
+
+
+
 /* ========= HERO SECTION CSS ========= */
 
 section#hero {
@@ -174,7 +219,7 @@ section#hero::before {
 }
 
 section#hero > .container {
-    grid-template-columns: 1fr 33.33333%;
+    grid-template-columns: 1fr 25%;
     grid-template-rows: 1fr;
     bottom: 120px;
 }
@@ -238,6 +283,23 @@ p.hero-text_body {
 
 
 
+@media only screen and (max-width: 1024px) {
+    h2.hero-text_main {
+        font-size: 108px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    h1.hero-text_sub {
+        font-size: 14px;
+    }
+
+    h2.hero-text_main {
+        font-size: 68px;
+    }
+}
+
+
 /* ========= CLOUDS SECTION CSS ========= */
 section.clouds {
     margin-top: -350px;
@@ -254,9 +316,9 @@ section.clouds .spacer {
 
 
 
-/* ========= ABOUT SECTION CSS ========= */
+/* ========= PROJECTS SECTION CSS ========= */
 
-section#about {
+section#projects {
     justify-content: center;
     align-items: center;
     min-height: 400px;
@@ -267,7 +329,7 @@ section#about {
     background-size: cover;
 }
 
-section#about::before {
+section#projects::before {
     content: "";
     display: block;
     position: absolute;
@@ -284,7 +346,7 @@ section#about::before {
     z-index: 0;
 }
 
-section#about::after {
+section#projects::after {
     content: "";
     display: block;
     position: absolute;
@@ -301,24 +363,52 @@ section#about::after {
     z-index: 0;
 }
 
-section#about > .grid {
+section#projects > .grid {
     grid-template-columns: 33.33333% 66.66666%;
     grid-template-rows: 1fr;
     column-gap: 20px;
 }
 
-section#about .col:nth-child(1) {
+section#projects > .container > .col:first-child {
     justify-content: center;
+    position: relative;
 }
 
-img#compass {
-    width: 400px;
-    height: 400px;
-    transform-origin: center center;
+section#projects > .container > .col:first-child::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 100vw;
+    height: 600px;
+    background-image: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffffffFA 66%,
+        #ffffffEE 75%,
+        #ffffffB8 90%,
+        #ffffff00 100%
+    );
+    background-position: center center;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
     z-index: 1;
 }
 
-section#about .col:nth-child(2) {
+img#compass {
+    position: absolute;
+    right: 0;
+    width: 600px;
+    height: 600px;
+    transform-origin: center center;
+    z-index: 1;
+    margin-top: -100px;
+    margin-bottom: -100px;
+    transition: all .3s ease;
+}
+
+section#projects .col:nth-child(2) {
     justify-content: center;
 }
 
@@ -364,6 +454,29 @@ ul.project-carousel_track {
 
 .project_item > a {
     color: #000;
+}
+
+@media only screen and (max-width: 1024px) {
+
+    section#projects > .container {
+        max-width: 100%;
+    }
+
+    section#projects > .grid {
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 1fr;
+        column-gap: 40px;
+    }
+
+    section#projects > .container > .col {
+        flex-wrap: wrap;
+    }
+
+    img#compass {
+
+    }
+
+
 }
 
 
