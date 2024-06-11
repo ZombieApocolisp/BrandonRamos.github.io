@@ -221,7 +221,7 @@ section#hero::before {
 section#hero > .container {
     grid-template-columns: 1fr 25%;
     grid-template-rows: 1fr;
-    bottom: 120px;
+    top: 0px;
 }
 
 h1.hero-text_sub {
@@ -284,8 +284,21 @@ p.hero-text_body {
 
 
 @media only screen and (max-width: 1024px) {
+    section#hero {
+        background-position: 75% 50%;
+        height: 85vh;
+    }
+
+    section#hero > .container > .col:last-child {
+        display: none;
+    }
+
+    section#hero > .grid {
+        grid-template-columns: 1fr;
+    }
+
     h2.hero-text_main {
-        font-size: 108px;
+        font-size: 124px;
     }
 }
 
@@ -300,6 +313,7 @@ p.hero-text_body {
 }
 
 
+
 /* ========= CLOUDS SECTION CSS ========= */
 section.clouds {
     margin-top: -350px;
@@ -311,7 +325,20 @@ section.clouds {
 }
 
 section.clouds .spacer {
-    height: 350px;
+    min-height: 230px;
+    transition: min-height .3s ease;
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+    section.clouds {
+        margin-top: -230px;
+    }
+
+    section.clouds .spacer {
+        min-height: 110px;
+    }
 }
 
 
@@ -471,12 +498,65 @@ ul.project-carousel_track {
     section#projects > .container > .col {
         flex-wrap: wrap;
     }
+}
 
-    img#compass {
-
+@media only screen and (max-width: 767px) {
+    section#projects > .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr;
+        column-gap: 0px;
+        row-gap: 20px;
     }
 
+    section#projects > .container > .col:first-child::after {
+        top: 0px;
+    }
 
+    /* Hides the Compass */
+    section#projects > .container > .col:first-child {
+        display: none;
+    }
+
+    img#compass {
+        top: 0px;
+        right: unset;
+        height: 300px;
+        width: 300px;
+     }
+}
+
+
+/* ========= PAPER TEARS SECTION CSS ========= */
+section.paper-tear {
+    margin-top: 0px;
+    margin-bottom: -22px;
+    background-image: url("images/paper-tear.png");
+    background-position: center bottom;
+    background-attachment: scroll;
+    background-repeat: repeat-x;
+    background-size: 1200px;
+    z-index: 1;
+}
+
+section.paper-tear > .container {
+    padding: 0px 0px 0px 0px;
+}
+
+section.paper-tear .spacer {
+    min-height: 50px;
+    transition: min-height .3s ease;
+}
+
+@media only screen and (max-width: 1024px) {
+    section.paper-tear {
+        margin-bottom: -18px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    section.paper-tear {
+        margin-bottom: -20px;
+    }
 }
 
 
@@ -561,6 +641,22 @@ h2.cta-text_main {
 
 p.cta-text_body {
     color: #fff;
+}
+
+@media only screen and (max-width: 1024px) {
+    h2.cta-text_main {
+        font-size: 112px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    h2.cta-text_sub {
+        font-size: 14px;
+    }
+
+    h2.cta-text_main {
+        font-size: 68px;
+    }
 }
 
 
