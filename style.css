@@ -246,7 +246,8 @@ li.menu-item a {
 section#hero {
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     background: #7f978c;
     background-image: url("images/hero_background-image_no-subject.jpg");
     background-position: center center;
@@ -338,7 +339,7 @@ p.hero-text_body {
 @media only screen and (max-width: 1024px) {
     section#hero {
         background-position: 75% 50%;
-        height: 85vh;
+        min-height: 75vh;
     }
 
     section#hero > .container > .col:last-child {
@@ -400,6 +401,7 @@ section.clouds .spacer {
 section#projects {
     justify-content: center;
     align-items: center;
+    height: auto;
     min-height: 400px;
     background-image: url("images/mount-washington_topographic-map.jpg");
     background-position: center right;
@@ -623,7 +625,8 @@ section.paper-tear .spacer {
 section#cta {
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     background: #7f978c;
     background-image: url("images/cta_background-image.jpg");
     background-position: center center;
@@ -711,6 +714,10 @@ p.cta-text_body {
 }
 
 @media only screen and (max-width: 767px) {
+    section#cta {
+        min-height: 75vh;
+    }
+
     h2.cta-text_sub {
         font-size: 14px;
     }
@@ -762,7 +769,7 @@ footer#footer h6 {
 @media only screen and (max-width: 767px) {
     footer#footer > .container {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
         column-gap: 0px;
         row-gap: 40px;
     }
