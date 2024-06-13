@@ -418,6 +418,10 @@ p.hero-text_body {
 }
 
 @media only screen and (max-width: 767px) {
+    section#hero {
+        background-attachment: scroll;
+    }
+
     h1.hero-text_sub {
         font-size: 14px;
     }
@@ -767,6 +771,7 @@ p.cta-text_body {
 
 @media only screen and (max-width: 1024px) {
     section#cta {
+        background-attachment: scroll;
         background-position: 77% center;
     }
 
