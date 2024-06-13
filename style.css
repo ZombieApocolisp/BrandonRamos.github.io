@@ -293,7 +293,11 @@ li.menu-item a:hover::after {
 @media only screen and (max-width: 767px) {
     nav#site-navigation {
         flex-wrap: nowrap;
-        column-gap: 10px;
+        column-gap: 0px;
+    }
+
+    li.menu-item a {
+        padding: 12px 16px 12px 10px;
     }
 }
 
