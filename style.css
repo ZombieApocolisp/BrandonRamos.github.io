@@ -771,7 +771,6 @@ p.cta-text_body {
 
 @media only screen and (max-width: 1024px) {
     section#cta {
-        background-attachment: scroll;
         background-position: 77% center;
     }
 
@@ -782,6 +781,7 @@ p.cta-text_body {
 
 @media only screen and (max-width: 767px) {
     section#cta {
+        background-attachment: scroll;
         min-height: 75vh;
     }
 
