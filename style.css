@@ -1,6 +1,6 @@
 /* ========= BASE CSS SETUP ========= */
 
-* {
+*, ::before, ::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -198,9 +198,31 @@ header#header > .container {
     justify-content: center;
 }
 
+.logo-col > a {
+    position: relative;
+}
+
+.logo-col > a::before {
+    content: "";
+    display: block;
+    width: calc(100% + 4px);
+    height: calc(200% + 4px);
+    position: absolute;
+    left: -2px;
+    bottom: 0px;
+    border: 2px solid #fff;
+    border-radius: 0px 0px 50px 50px;
+}
+
 img.logo {
     width: 80px;
     height: 80px;
+    /* border: 2px solid #fff;
+    border-top: none;
+    border-radius: 0px 0px 50px 50px; */
+    padding: 5px;
+    background-color: transparent;
+
 }
 
 nav#site-navigation {
@@ -214,14 +236,49 @@ li.menu-item {
     justify-content: center;
     align-items: center;
     list-style-type: none;
+    overflow: hidden;
 }
 
 li.menu-item a {
+    position: relative;
     font-family: "Teko", sans-serif;
     font-size: 18px;
     text-transform: uppercase;
-    padding: 12px 12px;
+    padding: 12px 18px 12px 12px;
     color: #fff;
+    z-index: 0;
+    transition: all .3s ease;
+}
+
+li.menu-item a:hover {
+    color: #333;
+}
+
+li.menu-item a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 0px;
+    height: 30px;
+    width: 100%;
+    transform: translateY(-50%);
+    clip-path: polygon(0 0, 85% 0%, 100% 50%, 85% 100%, 0 100%, 0% 50%);
+    background-image: linear-gradient(
+        180deg,
+        rgba(255,255,255,.85) 0%,
+        rgba(255,255,255,.85) 100%);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 0%;
+    opacity: 1;
+    z-index: -1;
+    transition: all .3s ease;
+}
+
+li.menu-item a:hover::after {
+    background-size: 100%;
+    opacity: 1;
 }
 
 
@@ -235,6 +292,7 @@ li.menu-item a {
 /* --- Responsiveness: Mobile ---*/
 @media only screen and (max-width: 767px) {
     nav#site-navigation {
+        flex-wrap: nowrap;
         column-gap: 10px;
     }
 }
