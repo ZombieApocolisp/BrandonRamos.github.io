@@ -80,7 +80,6 @@ h1, h2, h3, h4, h5, h6, p, a, div, button {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: unset;
     -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
