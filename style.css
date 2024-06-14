@@ -644,7 +644,7 @@ ul.project-carousel_track {
 }
 
 .project_item > a.item:hover {
-    font-size: 56px;
+    font-size: 52px;
     font-weight: 700;
     text-shadow: 0px 0px 10px #00000033;
     color: red;
@@ -678,6 +678,14 @@ a.item {
 
     section#projects > .container > .col {
         flex-wrap: wrap;
+    }
+
+    section#projects > .container > .col:first-child {
+        width: calc(100% - 40px);
+    }
+
+    section#projects > .container > .col:last-child {
+        width: calc(100% - 40px);
     }
 }
 
