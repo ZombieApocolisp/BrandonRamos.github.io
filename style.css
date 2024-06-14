@@ -627,7 +627,7 @@ ul.project-carousel_track {
 
 .project_item.current-item a.item {
     font-family: "Teko", sans-serif;
-    font-size: 56px;
+    font-size: 52px;
     font-weight: 700;
     text-transform: uppercase;
     text-shadow: 0px 0px 10px #00000033;
@@ -639,6 +639,7 @@ ul.project-carousel_track {
     font-family: "Teko", sans-serif;
     text-transform: uppercase;
     font-size: 22px;
+    padding: 40px;
     color: #000;
 }
 
@@ -660,6 +661,7 @@ a.item {
 
 .text-wrap {
     display: block;
+    text-align: center;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -836,6 +838,7 @@ p.cta-text_body {
     section#cta {
         justify-content: flex-start;
         background-position: 77% center;
+        background-attachment: scroll;
         min-height: 75vh;
     }
 
