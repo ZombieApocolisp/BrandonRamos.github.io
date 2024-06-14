@@ -705,9 +705,14 @@ a.item {
         top: 0px;
     }
 
-    /* Hides the Compass */
+    /* Hides the Compass Column */
     section#projects > .container > .col:first-child {
         display: none;
+        width: 100%;
+    }
+
+    section#projects > .container > .col:last-child {
+        width: 100%;
     }
 
     img#compass {
