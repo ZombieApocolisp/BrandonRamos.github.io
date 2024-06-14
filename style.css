@@ -67,6 +67,7 @@ header, section, footer {
 /* ========= FONT CSS ========= */
 
 h1, h2, h3, h4, h5, h6, p, a, div, button {
+    text-rendering: optimizeLegibility;
     font-family: "Montserrat", sans-serif;
     font-size: 1em;
     font-weight: normal;
@@ -75,8 +76,15 @@ h1, h2, h3, h4, h5, h6, p, a, div, button {
     letter-spacing: normal;
     word-spacing: normal;
     line-height: 1em;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.005);
     -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: unset;
     -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: all .3s ease;
 }
 
 h1, h2, h3, h4, h5, h6, button {
@@ -276,9 +284,29 @@ li.menu-item a::after {
     transition: all .3s ease;
 }
 
+li.menu-item.contact-btn a {
+    color: #333;
+}
+
+li.menu-item.contact-btn a:hover {
+    color: #fff;
+}
+
+li.menu-item.contact-btn a::after {
+    background-size: 100%;
+    opacity: 1;
+}
+
 li.menu-item a:hover::after {
     background-size: 100%;
     opacity: 1;
+}
+
+li.menu-item.contact-btn a:hover::after {
+    background-image: linear-gradient(
+        180deg,
+        rgba(150,150,150,.85) 0%,
+        rgba(150,150,150,.85) 100%);
 }
 
 
@@ -543,6 +571,10 @@ section#projects > .container > .col:first-child::after {
     z-index: 1;
 }
 
+section#projects > .container > .col:last-child {
+    align-items: center;
+}
+
 img#compass {
     position: absolute;
     right: 0;
@@ -587,20 +619,48 @@ ul.project-carousel_track {
 }
 
 .project_item {
-    transform-origin: center left;
+    transform-origin: center center;
+    width: 100%;
     padding: 20px 0px;
     cursor: pointer;
     z-index: 1;
 }
 
-.project_item.current-item a {
-    text-transform: uppercase;
+.project_item.current-item a.item {
+    font-family: "Teko", sans-serif;
+    font-size: 56px;
     font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 10px #00000033;
+    color: red;
+    transition-delay: 0.3s;
+}
+
+.project_item > a.item {
+    font-family: "Teko", sans-serif;
+    text-transform: uppercase;
+    font-size: 22px;
+    color: #000;
+}
+
+.project_item > a.item:hover {
+    font-size: 56px;
+    font-weight: 700;
+    text-shadow: 0px 0px 10px #00000033;
     color: red;
 }
 
-.project_item > a {
-    color: #000;
+a.item {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 100%;
+}
+
+.text-wrap {
+    display: block;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -647,6 +707,10 @@ ul.project-carousel_track {
         height: 300px;
         width: 300px;
      }
+
+     .project_item.current-item a.item {
+        font-size: 40px;
+    }
 }
 
 
@@ -771,7 +835,9 @@ p.cta-text_body {
 
 @media only screen and (max-width: 1024px) {
     section#cta {
+        justify-content: flex-start;
         background-position: 77% center;
+        min-height: 75vh;
     }
 
     h2.cta-text_main {
@@ -782,7 +848,6 @@ p.cta-text_body {
 @media only screen and (max-width: 767px) {
     section#cta {
         background-attachment: scroll;
-        min-height: 75vh;
     }
 
     h2.cta-text_sub {
