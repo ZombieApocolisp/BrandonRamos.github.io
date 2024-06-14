@@ -385,7 +385,7 @@ h1.hero-text_sub::before {
     display: block;
     position: absolute;
     top: 0;
-    right: -14px;
+    right: -13.5px;
     height: 28px;
     width: 14px;
     clip-path: polygon(0 0, 0% 100%, 60% 50%);
@@ -474,11 +474,15 @@ p.hero-text_body {
 /* ========= CLOUDS SECTION CSS ========= */
 section.clouds {
     margin-top: -350px;
-    background-image: url("images/clouds.png");
+    background-image: url("images/clouds_clean.png");
     background-position: top center;
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+section.clouds.bg-flipped {
+    background-image: url("images/clouds_clean_flipped-x.png");
 }
 
 section.clouds .spacer {
