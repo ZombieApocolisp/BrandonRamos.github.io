@@ -577,6 +577,7 @@ section#projects > .grid {
     grid-template-columns: 33.33333% 66.66666%;
     grid-template-rows: 1fr;
     column-gap: 20px;
+    z-index: 1;
 }
 
 section#projects > .container > .col:first-child {
@@ -659,7 +660,7 @@ ul.project-carousel_track {
     scroll-behavior: smooth;
     scrollbar-width: none;
     scrollbar-color: transparent;
-    -webkit-overflow-scrolling: touch;
+    /* -webkit-overflow-scrolling: touch; */
     list-style: none;
 }
 
