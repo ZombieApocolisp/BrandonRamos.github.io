@@ -59,7 +59,7 @@ let activeItem = 0;
 // let projectCarouselTrackItems = projectCarouselTrack.querySelectorAll('.project_item').length;
 let projectCarouselTrackItems = projectItems.length;
 let currentSliderScrollPos = 0;
-let itemHeight = 400;
+let itemHeight = projectItems[0].clientHeight;
 let itemMaxHeight = (projectCarouselTrackItems * itemHeight) - itemHeight;
 
 
