@@ -461,7 +461,7 @@ p.hero-text_body {
     }
 
     section#hero > .container {
-        padding-top: 20px;
+        padding-top: 0px;
     }
 
     h1.hero-text_sub {
