@@ -2,7 +2,7 @@ const compass = document.getElementById('compass');
 const projectCarousel = document.getElementById('project-carousel');
 const projectCarouselTrack = document.querySelector('ul.project-carousel_track');
 let projectItems = Array.from(document.getElementsByClassName('project_item'));
-let currentItem = document.getElementsByClassName('current-item');
+// let currentItem = document.getElementsByClassName('current-item');
 const prevButton = document.querySelector('.prev-button');
 const nextButton = document.querySelector('.next-button');
 
@@ -56,11 +56,11 @@ const firstItemIndex = 0;
 const lastItemIndex = projectItems.length - 1;
 let activeItem = 0;
 
-// let projectCarouselTrackItems = projectCarouselTrack.querySelectorAll('.project_item').length;
-let projectCarouselTrackItems = projectItems.length;
+// let numberOfTrackItems = projectCarouselTrack.querySelectorAll('.project_item').length;
+let numberOfTrackItems = projectItems.length;
 let currentSliderScrollPos = 0;
 let itemHeight = projectItems[0].clientHeight;
-let itemMaxHeight = (projectCarouselTrackItems * itemHeight) - itemHeight;
+let itemMaxHeight = (numberOfTrackItems * itemHeight) - itemHeight;
 
 
 // Button Controls
@@ -185,7 +185,7 @@ const goToNextItem = () => {
 };
 
 
-
+// ****** Working Version of the Compass Rotation Function ******
 function rotateCompass() {
     projectItems.forEach(slide => {
         let classCheck = slide.classList.contains('current-item');
@@ -199,17 +199,27 @@ function rotateCompass() {
     });
 };
 
+
+// W.I.P. to create a smoother compass rotation between the project items
+// let currentAngle = 0;
+// console.log(currentAngle);
+// let moveCounterClockWise = currentAngle - (360 / numberOfTrackItems);
+// console.log(moveCounterClockWise);
+// let moveClockWise = currentAngle + (360 / numberOfTrackItems);
+// console.log(moveClockWise);
+
+// function rotateCompassCounterClockWise() {
+//     compass.style.transform = 'rotate(' + moveCounterClockWise + 'deg)';
+//     currentAngle = moveCounterClockWise;
+//     console.log(currentAngle);
+//     console.log(moveCounterClockWise);
+//     console.log(moveClockWise);
+// }
+
+// function rotateCompassClockWise() {
+//     compass.style.transform = 'rotate(' + moveClockWise + 'deg)';
+//     currentAngle = moveClockWise;
+// }
+
 prevButton.addEventListener("click", goToPrevItem);
 nextButton.addEventListener("click", goToNextItem);
-
-// function handleScroll() {
-//     // Get the scroll position
-//     var scrollPosition = projectCarouselTrack.scrollTop;
-//     console.log(scrollPosition);
-
-//     // Calculate the rotation angle based on the scroll position
-//     var rotationAngle = (360 / 400) * scrollPosition;
-
-//     // Apply the rotation to the compass
-//     compass.style.transform = 'rotate(' + rotationAngle + 'deg)';
-// }
