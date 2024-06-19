@@ -12,14 +12,12 @@
 
 body {
     width: 100vw;
-    scroll-behavior: smooth;
 }
 
 header, section, footer {
     position: relative;
     margin: 0px auto;
     width: 100%;
-    scroll-behavior: smooth;
 }
 
 .grid {
@@ -260,6 +258,7 @@ li.menu-item a {
     padding: 12px 18px 12px 12px;
     color: #fff;
     z-index: 0;
+    scroll-behavior: smooth;
     transition: all .3s ease;
 }
 
