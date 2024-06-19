@@ -458,6 +458,7 @@ p.hero-text_body {
 @media only screen and (max-width: 767px) {
     section#hero {
         background-attachment: scroll;
+        padding-bottom: 60px;
     }
 
     section#hero > .container {
@@ -495,7 +496,7 @@ p.hero-text_body {
 
 /* ========= CLOUDS SECTION CSS ========= */
 section.clouds {
-    margin-top: -350px;
+    margin-top: -325px;
     background-image: url("images/clouds_clean.png");
     background-position: top center;
     background-attachment: scroll;
@@ -596,9 +597,9 @@ section#projects > .container > .col:first-child::after {
     background-image: linear-gradient(
         90deg,
         #ffffff 0%,
-        #ffffffFA 66%,
-        #ffffffEE 75%,
-        #ffffffB8 90%,
+        #ffffffFA 76%,
+        #ffffffEE 85%,
+        #ffffffB8 95%,
         #ffffff00 100%
     );
     background-position: center center;
@@ -608,13 +609,9 @@ section#projects > .container > .col:first-child::after {
     z-index: 1;
 }
 
-section#projects > .container > .col:last-child {
-    align-items: center;
-}
-
 img#compass {
     position: absolute;
-    right: 0;
+    right: unset;
     width: 600px;
     height: 600px;
     transform-origin: center center;
@@ -624,8 +621,19 @@ img#compass {
     transition: all .3s ease;
 }
 
-section#projects .col:nth-child(2) {
+section#projects > .container > .col:last-child {
+    flex-flow: row wrap;
     justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+}
+
+button.prev-button {
+    order: 2;
+}
+
+button.next-button {
+    order: 3;
 }
 
 div#project-carousel {
@@ -634,6 +642,7 @@ div#project-carousel {
     width: 100%;
     height: 400px;
     z-index: 1;
+    order: 1;
     /* overflow-y: auto;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
@@ -652,7 +661,6 @@ div#project-carousel {
 ul.project-carousel_track {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-between;
     align-items: flex-start;
     position: absolute;
     width: 100%;
@@ -707,7 +715,7 @@ ul.project-carousel_track::-webkit-scrollbar-thumb {
     text-transform: uppercase;
     text-shadow: 0px 0px 8px #00000045;
     color: var(--highlight-color);
-    transition-delay: 0.3s;
+    transition-delay: font-family .3s, font-size .3s, font-weight .3s, text-transform .3s text-shadow .3s;
 }
 
 .project_item > a.item {
@@ -736,9 +744,16 @@ a.item {
 
 img.mockup {
     width: 100%;
+    max-height: 300px;
     height: 100%;
     object-position: center center;
     object-fit: contain;
+    margin-bottom: 20px;
+    transition: all .3s ease;
+}
+
+.project_item.current-item > a.item:hover > img.mockup {
+    transform: scale(1.1);
 }
 
 .text-wrap {
@@ -766,6 +781,10 @@ img.mockup {
 
     section#projects > .container > .col:first-child {
         width: calc(100% - 40px);
+    }
+
+    img#compass {
+        right: -180px;
     }
 
     section#projects > .container > .col:last-child {
@@ -813,7 +832,7 @@ img.mockup {
     }
 
     div#project-carousel {
-       height: 300px; 
+        height: 300px;
     }
 
     ul.project-carousel_track {
@@ -821,7 +840,7 @@ img.mockup {
     }
 
     .project_item {
-        height: 300px;
+        height: 100%;
     }
 
     a.item {
@@ -1000,6 +1019,7 @@ p.cta-text_body {
 footer#footer {
     justify-content: center;
     align-items: center;
+    margin-top: -60px;
 }
 
 footer#footer > .container {

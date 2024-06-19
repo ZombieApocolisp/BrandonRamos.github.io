@@ -2,21 +2,11 @@ const compass = document.getElementById('compass');
 const projectCarousel = document.getElementById('project-carousel');
 const projectCarouselTrack = document.querySelector('ul.project-carousel_track');
 let projectItems = Array.from(document.getElementsByClassName('project_item'));
-// let currentItem = document.getElementsByClassName('current-item');
 const prevButton = document.querySelector('.prev-button');
 const nextButton = document.querySelector('.next-button');
 
-// console.log(compass);
-// console.log(projectCarousel);
-// console.log(projectCarouselTrack);
-// console.log(projectItems);
-
-let clonesHeight;
-let trackHeight;
-
 // Creates a slide clone, adds a class to it and removes the "current-item", "prev-item", and "next-item" classes if available, then appends that clone/duplicate back into the projectItems array.
 // Also increases the scale of the element with a class list containing 'current-item' as one of its classes.
-
 
 // projectItems.forEach(slide => {
 //     let currentSlide = slide.classList.contains('current-item');
@@ -46,18 +36,14 @@ let trackHeight;
 //     projectItems.push(clone);
 // });
 
-// console.log(projectItems);
-
-// let nextSlide = slide[1].classList.contains('prev-item');
-
 
 
 const firstItemIndex = 0;
 const lastItemIndex = projectItems.length - 1;
 let activeItem = 0;
 
-// let numberOfTrackItems = projectCarouselTrack.querySelectorAll('.project_item').length;
 let numberOfTrackItems = projectItems.length;
+
 let currentSliderScrollPos = 0;
 let itemHeight = projectItems[0].clientHeight;
 let itemMaxHeight = (numberOfTrackItems * itemHeight) - itemHeight;
@@ -120,8 +106,6 @@ const goToPrevItem = () => {
     rotateCompass();
 };
 
-
-
 const goToNextItem = () => {
     let prevItem = activeItem - 1;
     let nextItem = activeItem + 1;
@@ -143,8 +127,6 @@ const goToNextItem = () => {
         newSliderScrollPos = currentSliderScrollPos + itemHeight;
         currentSliderScrollPos = newSliderScrollPos;
         projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-        console.log(currentSliderScrollPos);
-        console.log(newSliderScrollPos);
     } else if (activeItem === lastItemIndex) {
         projectItems[firstItemIndex].classList.add('current-item');
         projectItems[lastItemIndex].classList.add('prev-item');
@@ -157,8 +139,6 @@ const goToNextItem = () => {
         newSliderScrollPos = firstItemIndex;
         currentSliderScrollPos = newSliderScrollPos;
         projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-        console.log(currentSliderScrollPos);
-        console.log(newSliderScrollPos);
     } else {
         projectItems[activeItem].classList.add('prev-item');
         projectItems[nextItem].classList.add('current-item');
@@ -177,8 +157,6 @@ const goToNextItem = () => {
         newSliderScrollPos = currentSliderScrollPos + itemHeight;
         currentSliderScrollPos = newSliderScrollPos;
         projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-        console.log(currentSliderScrollPos);
-        console.log(newSliderScrollPos);
     };
 
     rotateCompass();
