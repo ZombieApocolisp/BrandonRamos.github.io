@@ -847,6 +847,10 @@ img.mockup {
         height: 300px;
     }
 
+    img.mockup {
+        max-height: 180px;
+    }
+
     .project_item.current-item a.item {
         font-size: 40px;
     }
