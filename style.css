@@ -18,6 +18,7 @@ header, section, footer {
     position: relative;
     margin: 0px auto;
     width: 100%;
+    scroll-behavior: smooth;
 }
 
 .grid {
@@ -540,6 +541,7 @@ section#projects {
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: cover;
+    scroll-behavior: smooth;
 }
 
 section#projects::before {
