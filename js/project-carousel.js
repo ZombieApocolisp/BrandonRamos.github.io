@@ -5,8 +5,9 @@ let projectItems = Array.from(document.getElementsByClassName('project_item'));
 const prevButton = document.querySelector('.prev-button');
 const nextButton = document.querySelector('.next-button');
 
-// Creates a slide clone, adds a class to it and removes the "current-item", "prev-item", and "next-item" classes if available, then appends that clone/duplicate back into the projectItems array.
-// Also increases the scale of the element with a class list containing 'current-item' as one of its classes.
+// Notes for Future Development:
+    //  Currently, the following snippet creates a slide clone, adds a class to it and removes the "current-item", "prev-item", and "next-item" classes if available,
+    //  then appends that clone/duplicate back into the projectItems array.
 
 // projectItems.forEach(slide => {
 //     let currentSlide = slide.classList.contains('current-item');
@@ -17,8 +18,6 @@ const nextButton = document.querySelector('.next-button');
 
 //     while (currentSlide == true) {
 // // do something to the current slide.
-//         slide.style.transform = "scale(1.1)";
-//         clone.classList.remove('current-item');
 //         break;
 //     };
 

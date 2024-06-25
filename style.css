@@ -1,5 +1,4 @@
 /* ========= BASE CSS SETUP ========= */
-
 :root {
     --highlight-color: #b23523;
 }
@@ -103,7 +102,7 @@ h1 {
 }
 
 h2 {
-    font-size: 64px;
+    font-size: 52px;
 }
 
 h3 {
@@ -278,12 +277,12 @@ li.menu-item a::after {
     clip-path: polygon(0 0, 85% 0%, 100% 50%, 85% 100%, 0 100%, 0% 50%);
     background-image: linear-gradient(
         180deg,
-        rgba(255,255,255,.85) 0%,
-        rgba(255,255,255,.85) 100%);
+        rgba(255,255,255) 0%,
+        rgba(255,255,255) 100%);
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 0%;
-    opacity: 1;
+    opacity: .5;
     z-index: -1;
     transition: all .3s ease;
 }
@@ -295,7 +294,7 @@ li.menu-item a:hover::after {
 
 /* --- CONTACT MENU BUTTON --- */
 li.menu-item.contact-btn a {
-    color: #333;
+    color: #fff;
 }
 
 li.menu-item.contact-btn a:hover {
@@ -303,6 +302,10 @@ li.menu-item.contact-btn a:hover {
 }
 
 li.menu-item.contact-btn a::after {
+    background-image: linear-gradient(
+        180deg,
+        #b23523 0%,
+        #b23523 100%);
     background-size: 100%;
     opacity: 1;
 }
@@ -312,6 +315,7 @@ li.menu-item.contact-btn a:hover::after {
         180deg,
         #b23523 0%,
         #b23523 100%);
+    opacity: .5;
 }
 
 
@@ -858,6 +862,16 @@ img.mockup {
 
 
 
+/* ========= ABOUT SECTION CSS ========= */
+section#about > .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 30px;
+    row-gap: 20px;
+}
+
+
+
 /* ========= PAPER TEARS SECTION CSS ========= */
 section.paper-tear {
     margin-top: 0px;
@@ -1034,6 +1048,10 @@ footer#footer > .container > .col {
     align-items: center;
 }
 
+footer#footer > .container > .col:nth-child(2) ul {
+    list-style-type: none;
+}
+
 footer#footer h6 {
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -1048,6 +1066,10 @@ footer#footer .email {
     color: var(--highlight-color);
 }
 
+footer#footer i {
+    margin-right: 5px;
+}
+
 .container.social-media {
     flex-flow: row nowrap;
     justify-content: center;
@@ -1055,6 +1077,10 @@ footer#footer .email {
     column-gap: 10px;
     max-width: 100%;
     padding: 0px;
+}
+
+.container.social-media > a:hover {
+    fill: var(--highlight-color);
 }
 
 .github_svg, .instagram_svg, .linkedin_svg {
