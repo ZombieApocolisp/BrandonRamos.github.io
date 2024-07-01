@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko|Cabin">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a1f5decbdd.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/nav.js" defer></script>
     <title>Brandon Ramos | Web Developer</title>
 </head>
 <body>
@@ -16,11 +17,14 @@
                     <img class="logo" src="images/portrait-shot-logo_circle.png" alt="Website Logo" height="auto" width="auto">
                 </a>
             </div>
-            <nav id="site-navigation" class="flex">
-                <li class="menu-item flex"><a href="https://zombieapocolisp.github.io/">Home</a></li>
-                <li class="menu-item flex"><a href="https://zombieapocolisp.github.io/#about">About</a></li>
-                <li class="menu-item flex"><a href="https://zombieapocolisp.github.io/#projects">Projects</a></li>
-                <li class="menu-item flex contact-btn"><a href="https://zombieapocolisp.github.io/#contact">Contact</a></li>
+            <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only">Menu</span></button>
+            <nav>
+                <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+                    <li class="menu-item flex active"><a href="https://zombieapocolisp.github.io/"><span aria-hidden="true">00</span>Home</a></li>
+                    <li class="menu-item flex"><a href="https://zombieapocolisp.github.io/#about"><span aria-hidden="true">01</span>About</a></li>
+                    <li class="menu-item flex"><a href="https://zombieapocolisp.github.io/#projects"><span aria-hidden="true">02</span>Projects</a></li>
+                    <li class="menu-item flex contact-btn"><a href="https://zombieapocolisp.github.io/#contact"><span aria-hidden="true">03</span>Contact</a></li>
+                </ul>
             </nav>
         </div>
     </header>
@@ -68,8 +72,8 @@
         <section id="about" class="flex">
             <div class="container grid">
                 <div class="col flex">
-                    <h2>About</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos non praesentium illo accusamus cumque minima? Inventore magni amet, facilis perferendis quia repellat dolores ullam assumenda nobis beatae? Voluptates, ipsam id.</p>
+                    <h2>The Journey So Far</h2>
+                    <p>These projects are a small sample of my 4+ years of experience working within the online marketing industry, specializing in front-end web design & development for both small and large businesses throughout the United States.</p>
                 </div>
                 <div class="col flex">
                     <h2>About Part 2</h2>
@@ -129,7 +133,6 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="js/header.js" async="false"></script>
     <script type="text/javascript" src="js/project-carousel.js" async="true"></script>
 
 </body>
