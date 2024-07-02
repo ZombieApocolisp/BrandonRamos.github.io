@@ -198,5 +198,10 @@ function rotateCompass() {
 //     currentAngle = moveClockWise;
 // }
 
-prevButton.addEventListener("click", goToPrevItem);
-nextButton.addEventListener("click", goToNextItem);
+/* Resets the Scroll Position for the carousel on page reload ON CHROME */
+window.onbeforunload = function () {
+    window.scrollTo(0, 0);
+}
+
+prevButton.addEventListener("click", goToPrevItem, true);
+nextButton.addEventListener("click", goToNextItem, true);
