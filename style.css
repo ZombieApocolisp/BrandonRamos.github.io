@@ -564,6 +564,13 @@ p.hero-text_body {
 
 /* Responsiveness: screen sizes < 428px */
 @media only screen and (max-width: 428px) {
+    section#hero {
+        background-position: 100% 50%;
+        background-attachment: scroll;
+        padding-bottom: 60px;
+        height: clamp(550px, 66vh, 100vh);
+    }
+
     h1.hero-text_sub {
         font-size: clamp(14px, 2.5vw, 100vw);
         margin-right: 31px;
@@ -604,6 +611,16 @@ section.clouds .spacer {
 
     section.clouds .spacer {
         min-height: 110px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    section.clouds {
+        margin-top: -180px;
+    }
+
+    section.clouds .spacer {
+        min-height: 60px;
     }
 }
 
