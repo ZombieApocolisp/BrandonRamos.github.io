@@ -1,4 +1,5 @@
 /* ========= BASE CSS SETUP ========= */
+
 :root {
     --highlight-color: #b23523;
 }
@@ -59,7 +60,7 @@ header, section, footer {
 
 
 
-/* Responsiveness: Tablet */
+/* === Responsiveness: Tablet === */
 @media only screen and (max-width: 1024px) {
     .container {
         max-width: 90%;
@@ -69,7 +70,7 @@ header, section, footer {
 
 
 
-/* Responsiveness: Mobile */
+/* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     .container {
         max-width: 90%;
@@ -138,6 +139,7 @@ p {
 
 
 /* ========= BUTTON STYLES CSS ========= */
+
 button {
     font-size: 16px;
     font-weight: 400;
@@ -152,6 +154,7 @@ button {
 
 
 /* ========= MISCELLANEOUS ========= */
+
 .d-only {
     display: inline-block;
 }
@@ -166,7 +169,7 @@ button {
 
 
 
-/* Responsiveness: Tablet */
+/* === Responsiveness: Tablet === */
 /* @media only screen and (max-width: 1024px) {
     .d-only {
         display: none;
@@ -183,7 +186,7 @@ button {
 
 
 
-/* Responsiveness: Mobile */
+/* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     .d-only {
         display: none;
@@ -216,6 +219,7 @@ header#header > .container {
 }
 
 
+
 /* --- LOGO --- */
 .logo-col {
     justify-content: center;
@@ -245,6 +249,7 @@ img.logo {
     margin: 5px;
     background-color: transparent;
 }
+
 
 
 /* --- NAVIGATION --- */
@@ -319,6 +324,7 @@ ul.primary-navigation li.menu-item a > [aria-hidden="true"] {
 }
 
 
+
 /* --- CONTACT MENU BUTTON --- */
 li.menu-item.contact-btn a {
     color: #fff;
@@ -353,14 +359,17 @@ li.menu-item.contact-btn a:hover::after {
 }
 
 
-/* Responsiveness: Laptop with MDPI Display */
+
+/* === Responsiveness: Laptop with MDPI Display === */
 @media only screen and (max-width: 1280px) {
     header#header > .container {
         padding: 10px 2%;
     }
 }
 
-/* --- Responsiveness: Mobile ---*/
+
+
+/* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     header#header > .container {
         grid-template-columns: 25% 1fr;
@@ -417,12 +426,18 @@ li.menu-item.contact-btn a:hover::after {
     }
 }
 
+
+
+/* === Responsiveness: Screen Sizes < 383px === */
 @media only screen and (max-width: 383px) {
     .mobile-nav-toggle {
         right: 3rem;
     }
 }
 
+
+
+/* === Responsiveness: Screen Sizes between 35em and 55em === */
 @media (min-width: 35em) and (max-width: 55em) {
     ul.primary-navigation li.menu-item a > [aria-hidden="true"]  {
         display: none;
@@ -526,7 +541,8 @@ p.hero-text_body {
 }
 
 
-/* Responsiveness: Tablet */
+
+/* === Responsiveness: Tablet === */
 @media only screen and (max-width: 1024px) {
     section#hero {
         background-position: 75% 50%;
@@ -536,7 +552,7 @@ p.hero-text_body {
     section#hero::before {
         background-image: linear-gradient(
             180deg,
-            rgba(255,255,255,0) 66%,
+            rgba(255,255,255,0) 75%,
             rgba(255,255,255,1) 100%);
     }
 
@@ -554,7 +570,8 @@ p.hero-text_body {
 }
 
 
-/* Responsiveness: Mobile */
+
+/* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     section#hero {
         background-position: 100% 50%;
@@ -577,7 +594,8 @@ p.hero-text_body {
 }
 
 
-/* Responsiveness: screen sizes < 428px */
+
+/* === Responsiveness: screen sizes < 428px === */
 @media only screen and (max-width: 428px) {
     section#hero {
         background-position: 100% 50%;
@@ -619,6 +637,7 @@ section.clouds .spacer {
 
 
 
+/* === Responsiveness: Tablet === */
 @media only screen and (max-width: 1024px) {
     section.clouds {
         margin-top: -230px;
@@ -629,6 +648,9 @@ section.clouds .spacer {
     }
 }
 
+
+
+/* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     section.clouds {
         margin-top: -180px;
@@ -696,6 +718,8 @@ section#projects > .grid {
     z-index: 1;
 }
 
+
+
 /* --- Column: Compass Image --- */
 section#projects > .container > .col:first-child {
     justify-content: center;
@@ -706,17 +730,14 @@ section#projects > .container > .col:first-child::after {
     content: "";
     display: block;
     position: absolute;
-    right: 0;
-    width: 100vw;
+    left: -5vw;
+    width: 55vw;
     height: 600px;
     background-image: linear-gradient(
         90deg,
         #ffffff 0%,
-        #ffffffFA 76%,
-        #ffffffEE 85%,
-        #ffffffB8 95%,
-        #ffffff00 100%
-    );
+        #ffffffB8 33.33333%,
+        #ffffff00 100%);
     background-position: center center;
     background-attachment: scroll;
     background-repeat: no-repeat;
@@ -736,11 +757,15 @@ img#compass {
     transition: all .3s ease;
 }
 
+
+
 /* --- Column: Project Carousel --- */
 section#projects > .container > .col:last-child {
     justify-content: center;
     align-items: center;
 }
+
+
 
 /* Project Carousel */
 div#project-carousel {
@@ -779,6 +804,8 @@ ul.project-carousel_track::-webkit-scrollbar-thumb {
     background: transparent;
     color: transparent;
 }
+
+
 
 /* Project Carousel - Slides/Items */
 .project_item {
@@ -835,6 +862,8 @@ img.mockup {
     text-align: center;
 }
 
+
+
 /* Project Carousel - Current Slide/Item */
 .project_item.current-item {
     z-index: 2;
@@ -853,6 +882,8 @@ img.mockup {
 .project_item.current-item > a.item:hover > img.mockup {
     transform: scale(1.1);
 }
+
+
 
 /* Buttons Container */
 section#projects .buttons-container {
@@ -896,6 +927,18 @@ button.prev-button, button.next-button {
         width: calc(100% - 40px);
     }
 
+    section#projects > .container > .col:first-child::after {
+        left: 0vw;
+        width: 50vw;
+        min-width: 600px;
+        background-image: linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #ffffffB8 33.33333%,
+            #ffffff33 66.66666%,
+            #ffffff00 100%);
+    }
+
     img#compass {
         right: -180px;
     }
@@ -936,7 +979,7 @@ button.prev-button, button.next-button {
 
     section#projects > .container {
         padding-top: 0px;
-        padding-bottom: 60px;
+        padding-bottom: 0px;
     }
 
     /* Column: Compass Image */
@@ -947,18 +990,21 @@ button.prev-button, button.next-button {
 
     img#compass {
         position: static;
-        top: 20px;
         height: clamp(150px, 80vw, 300px);
         width: clamp(150px, 80vw, 300px);
         margin-top: -120px;
+        margin-bottom: -170px;
      }
 
      section#projects > .container > .col:first-child::after {
         top: 0px;
         left: -20px;
         bottom: 0px;
-        margin-top: -80px;
+        width: 100vw;
+        min-width: unset;
+        margin-top: -120px;
         background-image: radial-gradient(
+            circle at center,
             #ffffff 25%,
             #ffffff00 75%);
     }
@@ -1006,7 +1052,7 @@ section#about > .grid {
 
 
 
-/* Responsiveness: Mobile */
+/* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     section#about {
         background-image: url("images/mount-washington_topographic-map.jpg");
@@ -1080,12 +1126,18 @@ section.paper-tear .spacer {
     transition: min-height .3s ease;
 }
 
+
+
+/* === Responsiveness: Tablet === */
 @media only screen and (max-width: 1024px) {
     section.paper-tear {
         margin-bottom: -18px;
     }
 }
 
+
+
+/* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     section.paper-tear {
         margin-bottom: -20px;
@@ -1180,7 +1232,7 @@ p.cta-text_body {
 
 
 
-/* Responsiveness: Tablet */
+/* === Responsiveness: Tablet === */
 @media only screen and (max-width: 1024px) {
     section#cta {
         justify-content: flex-start;
@@ -1196,7 +1248,7 @@ p.cta-text_body {
 
 
 
-/* Responsiveness: Mobile */
+/* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     section#cta {
         background-attachment: scroll;
@@ -1214,7 +1266,7 @@ p.cta-text_body {
 
 
 
-/* Responsiveness: screen sizes < 428px */
+/* === Responsiveness: Screen Sizes < 428px === */
 @media only screen and (max-width: 428px) {
     h2.cta-text_sub {
         font-size: clamp(14px, 2.5vw, 100vw);
@@ -1283,16 +1335,16 @@ footer#footer i {
     height: 1.25rem;
 }
 
-@media only screen and (max-width: 1024px) {
 
-}
 
+/* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     footer#footer > .container {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         column-gap: 0px;
         row-gap: 40px;
+        padding-bottom: 30px;
     }
 
     footer#footer h6 {
