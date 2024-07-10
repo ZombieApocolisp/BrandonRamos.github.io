@@ -45,10 +45,69 @@ let numberOfTrackItems = projectItems.length;
 
 let currentSliderScrollPos = 0;
 let itemHeight = projectItems[0].clientHeight;
+let itemWidth = projectItems[0].clientWidth;
 let itemMaxHeight = (numberOfTrackItems * itemHeight) - itemHeight;
+let itemMaxWidth = (numberOfTrackItems * itemWidth) - itemWidth;
 
+var mobileScreenSizes = window.matchMedia("(max-width:767px)");
 
 // Button Controls
+// const goToPrevItem = () => {
+//     let prevItem = activeItem - 1;
+//     let nextItem = activeItem + 1;
+//     let newSliderScrollPos;
+
+//     projectItems.forEach(item => {
+//         item.classList.remove('prev-item', 'current-item', 'next-item');
+//     });
+
+//     if (activeItem === firstItemIndex) {
+//         projectItems[firstItemIndex].classList.add('next-item');
+//         projectItems[lastItemIndex].classList.add('current-item');
+
+//         activeItem = lastItemIndex;
+//         prevItem = activeItem - 1;
+//         nextItem = firstItemIndex;
+//         projectItems[prevItem].classList.add('prev-item');
+
+//         newSliderScrollPos = itemMaxHeight;
+//         currentSliderScrollPos = newSliderScrollPos;
+//         projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+//     } else if (activeItem === lastItemIndex) {
+//         projectItems[lastItemIndex].classList.add('next-item');
+//         projectItems[prevItem].classList.add('current-item');
+
+//         activeItem = lastItemIndex - 1;
+//         prevItem = activeItem - 1;
+//         nextItem = lastItemIndex;
+//         projectItems[prevItem].classList.add('prev-item');
+
+//         newSliderScrollPos = itemMaxHeight - itemHeight;
+//         currentSliderScrollPos = newSliderScrollPos;
+//         projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+//     } else {
+//         projectItems[prevItem].classList.add('current-item');
+//         projectItems[activeItem].classList.add('next-item');
+
+//         activeItem = prevItem;
+        
+//         if (prevItem === firstItemIndex) {
+//             prevItem = lastItemIndex;
+//         } else {
+//             prevItem = activeItem - 1;
+//         }
+
+//         nextItem = activeItem + 1;
+//         projectItems[prevItem].classList.add('prev-item');
+
+//         newSliderScrollPos = currentSliderScrollPos - itemHeight;
+//         currentSliderScrollPos = newSliderScrollPos;
+//         projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+//     };
+
+//     rotateCompass();
+// };
+
 const goToPrevItem = () => {
     let prevItem = activeItem - 1;
     let nextItem = activeItem + 1;
@@ -58,52 +117,156 @@ const goToPrevItem = () => {
         item.classList.remove('prev-item', 'current-item', 'next-item');
     });
 
-    if (activeItem === firstItemIndex) {
-        projectItems[firstItemIndex].classList.add('next-item');
-        projectItems[lastItemIndex].classList.add('current-item');
-
-        activeItem = lastItemIndex;
-        prevItem = activeItem - 1;
-        nextItem = firstItemIndex;
-        projectItems[prevItem].classList.add('prev-item');
-
-        newSliderScrollPos = itemMaxHeight;
-        currentSliderScrollPos = newSliderScrollPos;
-        projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-    } else if (activeItem === lastItemIndex) {
-        projectItems[lastItemIndex].classList.add('next-item');
-        projectItems[prevItem].classList.add('current-item');
-
-        activeItem = lastItemIndex - 1;
-        prevItem = activeItem - 1;
-        nextItem = lastItemIndex;
-        projectItems[prevItem].classList.add('prev-item');
-
-        newSliderScrollPos = itemMaxHeight - itemHeight;
-        currentSliderScrollPos = newSliderScrollPos;
-        projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-    } else {
-        projectItems[prevItem].classList.add('current-item');
-        projectItems[activeItem].classList.add('next-item');
-
-        activeItem = prevItem;
+    switch(mobileScreenSizes.matches) {
+        case true:
+            if (activeItem === firstItemIndex) {
+                projectItems[firstItemIndex].classList.add('next-item');
+                projectItems[lastItemIndex].classList.add('current-item');
         
-        if (prevItem === firstItemIndex) {
-            prevItem = lastItemIndex;
-        } else {
-            prevItem = activeItem - 1;
-        }
-
-        nextItem = activeItem + 1;
-        projectItems[prevItem].classList.add('prev-item');
-
-        newSliderScrollPos = currentSliderScrollPos - itemHeight;
-        currentSliderScrollPos = newSliderScrollPos;
-        projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+                activeItem = lastItemIndex;
+                prevItem = activeItem - 1;
+                nextItem = firstItemIndex;
+                projectItems[prevItem].classList.add('prev-item');
+        
+                newSliderScrollPos = itemMaxWidth;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
+            } else if (activeItem === lastItemIndex) {
+                projectItems[lastItemIndex].classList.add('next-item');
+                projectItems[prevItem].classList.add('current-item');
+        
+                activeItem = lastItemIndex - 1;
+                prevItem = activeItem - 1;
+                nextItem = lastItemIndex;
+                projectItems[prevItem].classList.add('prev-item');
+        
+                newSliderScrollPos = itemMaxWidth - itemWidth;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
+            } else {
+                projectItems[prevItem].classList.add('current-item');
+                projectItems[activeItem].classList.add('next-item');
+        
+                activeItem = prevItem;
+                
+                if (prevItem === firstItemIndex) {
+                    prevItem = lastItemIndex;
+                } else {
+                    prevItem = activeItem - 1;
+                }
+        
+                nextItem = activeItem + 1;
+                projectItems[prevItem].classList.add('prev-item');
+        
+                newSliderScrollPos = currentSliderScrollPos - itemWidth;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
+            };
+            break;
+        default:
+            if (activeItem === firstItemIndex) {
+                projectItems[firstItemIndex].classList.add('next-item');
+                projectItems[lastItemIndex].classList.add('current-item');
+        
+                activeItem = lastItemIndex;
+                prevItem = activeItem - 1;
+                nextItem = firstItemIndex;
+                projectItems[prevItem].classList.add('prev-item');
+        
+                newSliderScrollPos = itemMaxHeight;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+            } else if (activeItem === lastItemIndex) {
+                projectItems[lastItemIndex].classList.add('next-item');
+                projectItems[prevItem].classList.add('current-item');
+        
+                activeItem = lastItemIndex - 1;
+                prevItem = activeItem - 1;
+                nextItem = lastItemIndex;
+                projectItems[prevItem].classList.add('prev-item');
+        
+                newSliderScrollPos = itemMaxHeight - itemHeight;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+            } else {
+                projectItems[prevItem].classList.add('current-item');
+                projectItems[activeItem].classList.add('next-item');
+        
+                activeItem = prevItem;
+                
+                if (prevItem === firstItemIndex) {
+                    prevItem = lastItemIndex;
+                } else {
+                    prevItem = activeItem - 1;
+                }
+        
+                nextItem = activeItem + 1;
+                projectItems[prevItem].classList.add('prev-item');
+        
+                newSliderScrollPos = currentSliderScrollPos - itemHeight;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+            };
     };
 
     rotateCompass();
 };
+
+// const goToNextItem = () => {
+//     let prevItem = activeItem - 1;
+//     let nextItem = activeItem + 1;
+//     let newSliderScrollPos;
+
+//     projectItems.forEach(item => {
+//         item.classList.remove('prev-item', 'current-item', 'next-item');
+//     });
+
+//     if (activeItem === firstItemIndex) {
+//         projectItems[firstItemIndex].classList.add('prev-item');
+//         projectItems[nextItem].classList.add('current-item');
+
+//         activeItem = nextItem;
+//         prevItem = firstItemIndex;
+//         nextItem = activeItem + 1;
+//         projectItems[nextItem].classList.add('next-item');
+
+//         newSliderScrollPos = currentSliderScrollPos + itemHeight;
+//         currentSliderScrollPos = newSliderScrollPos;
+//         projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+//     } else if (activeItem === lastItemIndex) {
+//         projectItems[firstItemIndex].classList.add('current-item');
+//         projectItems[lastItemIndex].classList.add('prev-item');
+
+//         activeItem = firstItemIndex;
+//         prevItem = lastItemIndex;
+//         nextItem = activeItem + 1;
+//         projectItems[nextItem].classList.add('next-item');
+
+//         newSliderScrollPos = firstItemIndex;
+//         currentSliderScrollPos = newSliderScrollPos;
+//         projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+//     } else {
+//         projectItems[activeItem].classList.add('prev-item');
+//         projectItems[nextItem].classList.add('current-item');
+
+//         activeItem = nextItem;
+        
+//         if (nextItem === lastItemIndex) {
+//             nextItem = firstItemIndex;
+//         } else {
+//             nextItem = activeItem + 1;
+//         }
+
+//         projectItems[nextItem].classList.add('next-item');
+//         prevItem = activeItem - 1;
+
+//         newSliderScrollPos = currentSliderScrollPos + itemHeight;
+//         currentSliderScrollPos = newSliderScrollPos;
+//         projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+//     };
+
+//     rotateCompass();
+// };
 
 const goToNextItem = () => {
     let prevItem = activeItem - 1;
@@ -114,48 +277,96 @@ const goToNextItem = () => {
         item.classList.remove('prev-item', 'current-item', 'next-item');
     });
 
-    if (activeItem === firstItemIndex) {
-        projectItems[firstItemIndex].classList.add('prev-item');
-        projectItems[nextItem].classList.add('current-item');
-
-        activeItem = nextItem;
-        prevItem = firstItemIndex;
-        nextItem = activeItem + 1;
-        projectItems[nextItem].classList.add('next-item');
-
-        newSliderScrollPos = currentSliderScrollPos + itemHeight;
-        currentSliderScrollPos = newSliderScrollPos;
-        projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-    } else if (activeItem === lastItemIndex) {
-        projectItems[firstItemIndex].classList.add('current-item');
-        projectItems[lastItemIndex].classList.add('prev-item');
-
-        activeItem = firstItemIndex;
-        prevItem = lastItemIndex;
-        nextItem = activeItem + 1;
-        projectItems[nextItem].classList.add('next-item');
-
-        newSliderScrollPos = firstItemIndex;
-        currentSliderScrollPos = newSliderScrollPos;
-        projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-    } else {
-        projectItems[activeItem].classList.add('prev-item');
-        projectItems[nextItem].classList.add('current-item');
-
-        activeItem = nextItem;
+    switch(mobileScreenSizes.matches) {
+        case true:
+            if (activeItem === firstItemIndex) {
+                projectItems[firstItemIndex].classList.add('prev-item');
+                projectItems[nextItem].classList.add('current-item');
         
-        if (nextItem === lastItemIndex) {
-            nextItem = firstItemIndex;
-        } else {
-            nextItem = activeItem + 1;
-        }
-
-        projectItems[nextItem].classList.add('next-item');
-        prevItem = activeItem - 1;
-
-        newSliderScrollPos = currentSliderScrollPos + itemHeight;
-        currentSliderScrollPos = newSliderScrollPos;
-        projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+                activeItem = nextItem;
+                prevItem = firstItemIndex;
+                nextItem = activeItem + 1;
+                projectItems[nextItem].classList.add('next-item');
+        
+                newSliderScrollPos = currentSliderScrollPos + itemWidth;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
+            } else if (activeItem === lastItemIndex) {
+                projectItems[firstItemIndex].classList.add('current-item');
+                projectItems[lastItemIndex].classList.add('prev-item');
+        
+                activeItem = firstItemIndex;
+                prevItem = lastItemIndex;
+                nextItem = activeItem + 1;
+                projectItems[nextItem].classList.add('next-item');
+        
+                newSliderScrollPos = firstItemIndex;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
+            } else {
+                projectItems[activeItem].classList.add('prev-item');
+                projectItems[nextItem].classList.add('current-item');
+        
+                activeItem = nextItem;
+                
+                if (nextItem === lastItemIndex) {
+                    nextItem = firstItemIndex;
+                } else {
+                    nextItem = activeItem + 1;
+                }
+        
+                projectItems[nextItem].classList.add('next-item');
+                prevItem = activeItem - 1;
+        
+                newSliderScrollPos = currentSliderScrollPos + itemWidth;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
+            };
+            break;
+        default:
+            if (activeItem === firstItemIndex) {
+                projectItems[firstItemIndex].classList.add('prev-item');
+                projectItems[nextItem].classList.add('current-item');
+        
+                activeItem = nextItem;
+                prevItem = firstItemIndex;
+                nextItem = activeItem + 1;
+                projectItems[nextItem].classList.add('next-item');
+        
+                newSliderScrollPos = currentSliderScrollPos + itemHeight;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+            } else if (activeItem === lastItemIndex) {
+                projectItems[firstItemIndex].classList.add('current-item');
+                projectItems[lastItemIndex].classList.add('prev-item');
+        
+                activeItem = firstItemIndex;
+                prevItem = lastItemIndex;
+                nextItem = activeItem + 1;
+                projectItems[nextItem].classList.add('next-item');
+        
+                newSliderScrollPos = firstItemIndex;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+            } else {
+                projectItems[activeItem].classList.add('prev-item');
+                projectItems[nextItem].classList.add('current-item');
+        
+                activeItem = nextItem;
+                
+                if (nextItem === lastItemIndex) {
+                    nextItem = firstItemIndex;
+                } else {
+                    nextItem = activeItem + 1;
+                }
+        
+                projectItems[nextItem].classList.add('next-item');
+                prevItem = activeItem - 1;
+        
+                newSliderScrollPos = currentSliderScrollPos + itemHeight;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
+            };
     };
 
     rotateCompass();

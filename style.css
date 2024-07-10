@@ -783,9 +783,9 @@ ul.project-carousel_track {
     position: absolute;
     width: 100%;
     height: 400px;
-    overflow-y: auto;
+    overflow: hidden scroll;
     -ms-overflow-style: none;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: both mandatory;
     scrollbar-width: none;
     scrollbar-color: transparent;
     list-style: none;
@@ -835,7 +835,7 @@ ul.project-carousel_track::-webkit-scrollbar-thumb {
     font-size: 52px;
     font-weight: 700;
     text-shadow: 0px 0px 10px #00000033;
-    color: red;
+    color: var(--highlight-color);
 }
 
 a.item {
@@ -995,9 +995,9 @@ button.prev-button, button.next-button {
         width: clamp(150px, 80vw, 300px);
         margin-top: -120px;
         margin-bottom: -170px;
-     }
+    }
 
-     section#projects > .container > .col:first-child::after {
+    section#projects > .container > .col:first-child::after {
         top: 0px;
         left: -20px;
         bottom: 0px;
@@ -1006,8 +1006,8 @@ button.prev-button, button.next-button {
         margin-top: -120px;
         background-image: radial-gradient(
             circle at center,
-            #ffffff 25%,
-            #ffffff00 75%);
+            #ffffff 0%,
+            #ffffff00 50%);
     }
 
      /* Column: Project Carousel */
@@ -1017,10 +1017,13 @@ button.prev-button, button.next-button {
 
     div#project-carousel {
         height: 300px;
+        width: 320px;
     }
 
     ul.project-carousel_track {
+        flex-flow: row nowrap;
         height: 300px;
+        overflow: scroll hidden;
     }
 
     .project_item {
@@ -1037,6 +1040,15 @@ button.prev-button, button.next-button {
 
     .project_item.current-item a.item {
         font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 428px) {
+    section#projects > .container > .col:first-child::after {
+        background-image: radial-gradient(
+            circle at center,
+            #ffffff 25%,
+            #ffffff00 75%);
     }
 }
 
