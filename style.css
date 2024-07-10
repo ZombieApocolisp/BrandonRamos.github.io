@@ -952,7 +952,6 @@ button.prev-button, button.next-button {
 /* === RESPONSIVENESS: MOBILE === */
 @media only screen and (max-width: 767px) {
     section#projects {
-        padding: 0px 20px;
         background-attachment: fixed;
     }
 
@@ -1017,7 +1016,6 @@ button.prev-button, button.next-button {
 
     div#project-carousel {
         height: 300px;
-        width: 320px;
     }
 
     ul.project-carousel_track {
@@ -1028,6 +1026,7 @@ button.prev-button, button.next-button {
 
     .project_item {
         height: 100%;
+        padding: 0px 20px;
     }
 
     a.item {
