@@ -136,6 +136,12 @@ p {
     font-size: 16px;
 }
 
+@media only screen and (max-width: 767px) {
+    h1, h2, h3, h4, h5, h6, p, a, div, button {
+        line-height: 0.8em;
+    }
+}
+
 
 
 /* ========= BUTTON STYLES CSS ========= */
@@ -326,29 +332,57 @@ ul.primary-navigation li.menu-item a > [aria-hidden="true"] {
 
 
 /* --- CONTACT MENU BUTTON --- */
-li.menu-item.contact-btn a {
-    color: #fff;
-}
-
-li.menu-item.contact-btn a:hover {
-    color: #fff;
-}
-
-li.menu-item.contact-btn a::after {
-    background-image: linear-gradient(
-        180deg,
-        #b23523 0%,
-        #b23523 100%);
-    background-size: 100%;
-    opacity: 1;
-}
-
-li.menu-item.contact-btn a:hover::after {
-    background-image: linear-gradient(
-        180deg,
-        #b23523 0%,
-        #b23523 100%);
-    opacity: .5;
+@media only screen and (min-width: 767px) {
+    li.menu-item.contact-btn a {
+        color: #fff;
+    }
+    
+    li.menu-item.contact-btn a:hover {
+        color: #333333;
+    }
+    
+    li.menu-item.contact-btn a::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: calc(50% - 1px);
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        transform: translateY(-50%);
+        clip-path: polygon(0 0, 87.5% 0%, 100% 50%, 87.5% 100%, 0 100%, 0% 50%);
+        background-image: linear-gradient(
+            180deg,
+            rgba(255,255,255) 0%,
+            rgba(255,255,255) 100%);
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 0%;
+        opacity: 1;
+        z-index: -1;
+        transition: all .3s ease;
+    }
+    
+    li.menu-item.contact-btn a::after {
+        background-image: linear-gradient(
+            180deg,
+            #b23523 0%,
+            #b23523 100%);
+        background-size: 100%;
+        opacity: 1;
+    }
+    
+    li.menu-item.contact-btn a:hover::after {
+        background-image: linear-gradient(
+            180deg,
+            #b23523 0%,
+            #b23523 100%);
+        opacity: 0;
+    }
+    
+    li.menu-item.contact-btn a:hover::before {
+        background-size: 100%;
+    }
 }
 
 
