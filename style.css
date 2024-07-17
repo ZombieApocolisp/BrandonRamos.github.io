@@ -951,7 +951,7 @@ button.prev-button, button.next-button {
     text-transform: uppercase;
     padding: 10px 18px;
     border: 1px solid rgba(0,0,0,0.05);
-    background-color: rgba(0,0,0,0.05);
+    background-color: rgba(0,0,0,0.12);
     z-index: 1;
     cursor: pointer;
 }
