@@ -1296,6 +1296,7 @@ section#about > .container > .col:last-child > .paper-content .infobox-content p
 
     section#about > .container {
         margin-bottom: -60px;
+        padding-top: 0px;
     }
 
     section#about > .grid {
