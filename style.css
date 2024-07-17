@@ -1132,35 +1132,63 @@ section#about > .container {
     margin-top: 40px;
     margin-bottom: -100px;
     padding-top: 30px;
+    padding-bottom: 0px;
     z-index: 2;
 }
 
 section#about .col {
-    padding: 30px 20px 30px 30px;
+    justify-content: space-between;
 }
 
-section#about .col > h2 {
+section#about .col > .paper-content {
+    width: 100%;
+    padding: 40px 20px 40px 30px;
+}
+
+section#about .col > .paper-content h2 {
     font-size: 52px;
     text-transform: uppercase;
 }
 
-section#about .col > h3 {
+section#about .col > .paper-content h3 {
     font-size: 28px;
 }
 
-section#about .col > p {
+section#about .col > .paper-content p {
     font-size: 18px;
     line-height: 1.8em;
-    margin-bottom: 20px;
 }
 
-section#about > .container > .col:last-child > .container.flex {
+section#about .col > .torn-paper {
+    display: none;
+    position: relative;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: -28px;
+    background-image: url("images/paper-tear.png");
+    background-position: center center;
+    background-attachment: scroll;
+    background-repeat: repeat-x;
+    background-size: 1200px;
+    z-index: 2;
+}
+
+section#about .col > .torn-paper > .spacer {
+    min-height: 50px;
+    transition: min-height .3s ease;
+}
+
+section#about > .container > .col:last-child > .paper-content .container.flex {
     flex-flow: row nowrap;
-    align-items: middle;
+    align-items: flex-start;
 }
 
-section#about > .container > .col:last-child > .infobox {
-    padding: 20px 0px;
+section#about > .container > .col:last-child > .paper-content .infobox {
+    padding: 10px 0px;
+}
+
+section#about > .container > .col:last-child > .paper-content .infobox-content p {
+    font-size: 15px;
 }
 
 .infobox-icon {
@@ -1169,7 +1197,62 @@ section#about > .container > .col:last-child > .infobox {
     height: 40px;
 }
 
+/* === Responsiveness: Coffee Stained Paper Image === */
+@media only screen and (max-width:1200px) {
+    section#about > .container {
+        min-height: 400px;
+        background-image: none;
+    }
 
+    section#about > .container > .col:first-child {
+        min-height: 400px;
+        background-image: url("images/coffee-stained-paper_left-half.png");
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 15px 15px 25px 15px;
+    }
+
+    section#about > .container > .col:last-child {
+        min-height: 400px;
+        background-image: url("images/coffee-stained-paper_right-half.png");
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 15px;
+    }
+
+    section#about .col > .paper-content {
+        padding: 40px 30px 40px 30px;
+    }
+}
+
+/* === Responsiveness: Tablet === */
+@media only screen and (max-width: 1024px) {
+    section#about > .container > .col {
+        background-position: center center;
+        background-color: #e3c8a9;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    }
+
+    section#about .col > .paper-content {
+        text-align: center;
+        padding: 40px 30px 40px 30px;
+    }
+
+    section#about .col:last-child > .paper-content {
+        text-align: left;
+    }
+
+    section#about .col:last-child > .paper-content > .container.infobox {
+        max-width: 100%;
+        margin: 0px;
+    }
+
+    section#about .col > .paper-content.flex {
+        align-items: center;
+    }
+}
 
 /* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
@@ -1211,6 +1294,10 @@ section#about > .container > .col:last-child > .infobox {
         z-index: 0;
     }
 
+    section#about > .container {
+        margin-bottom: -60px;
+    }
+
     section#about > .grid {
         grid-template-columns: 1fr;
         row-gap: 60px;
@@ -1219,6 +1306,64 @@ section#about > .container > .col:last-child > .infobox {
     section#about .col.flex {
         align-items: center;
         text-align: center;
+    }
+
+    section#about > .container > .col:first-child {
+        background-position: center center;
+        border-radius: 15px 15px 0px 0px;
+        order: 2;
+    }
+
+    section#about > .container > .col:last-child {
+        background-position: center center;
+        border-radius: 15px 15px 0px 0px;
+        order: 1;
+    }
+
+    section#about .col > .paper-content {
+        padding: 40px 20px 0px 20px;
+    }
+
+    section#about .col > .paper-content h2 {
+        font-size: 42px;
+        text-transform: uppercase;
+    }
+    
+    section#about .col > .paper-content h3 {
+        font-size: 24px;
+    }
+
+    section#about .col > .paper-content h4 {
+        font-size: 22px;
+        letter-spacing: 0.6px;
+    }
+    
+    section#about .col > .paper-content p {
+        font-size: 14px;
+        line-height: 1.8em;
+    }
+
+    section#about > .container > .col:first-child > .paper-content .infobox {
+        padding: 5px 0px;
+    }
+    
+    section#about > .container > .col:last-child > .paper-content .infobox {
+        padding: 5px 0px;
+    }
+
+    section#about > .container > .col:last-child > .paper-content .infobox-content p {
+        font-size: 14px;
+    }
+
+    .infobox-icon {
+        font-size: 1.25em;
+        width: 20px;
+        height: 20px;
+    }
+
+    section#about .col > .torn-paper {
+        display: block;
+        margin-bottom: -24px;
     }
 }
 
@@ -1365,6 +1510,10 @@ p.cta-text_body {
         height: clamp(600px, 75vh, 100vh);
     }
 
+    section#cta > .container {
+        padding: 120px 0px;
+    }
+
     h2.cta-text_main {
         font-size: 112px;
     }
@@ -1376,7 +1525,11 @@ p.cta-text_body {
 @media only screen and (max-width: 767px) {
     section#cta {
         background-attachment: scroll;
-        height: clamp(600px, 70vh, 100vh);
+        height: clamp(600px, 75vh, 100vh);
+    }
+
+    section#cta > .container {
+        padding: 90px 0px;
     }
 
     h2.cta-text_sub {
