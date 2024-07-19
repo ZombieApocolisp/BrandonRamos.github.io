@@ -925,7 +925,7 @@ img.mockup {
     font-size: 52px;
     font-weight: 700;
     text-transform: capitalize;
-    text-shadow: 0px 0px 8px #00000045;
+    text-shadow: 0px 0px 5px #00000045;
     color: var(--highlight-color);
     transition-delay: font-family .3s, font-size .3s, font-weight .3s, text-transform .3s text-shadow .3s;
 }
