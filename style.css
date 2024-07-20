@@ -650,7 +650,7 @@ p.hero-text_body {
         background-position: 100% 50%;
         background-attachment: scroll;
         padding-bottom: 60px;
-        height: clamp(550px, 70vh, 100vh);
+        height: clamp(550px, 72vh, 100vh);
     }
 
     h1.hero-text_sub {
@@ -659,7 +659,7 @@ p.hero-text_body {
     }
 
     h2.hero-text_main {
-        font-size: clamp(1rem, 14vw, 100vw);
+        font-size: clamp(1rem, 13vw, 100vw);
     }
 }
 
