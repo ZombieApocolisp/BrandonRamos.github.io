@@ -21,6 +21,9 @@ header, main, section, footer {
     position: relative;
     margin: 0px auto;
     width: 100%;
+}
+
+main {
     z-index: 0;
 }
 
