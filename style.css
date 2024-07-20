@@ -419,7 +419,7 @@ ul.primary-navigation li.menu-item a > [aria-hidden="true"] {
         padding: min(30vh, 10rem) 2rem;
         --gap: 2em;
         
-        background: hsl(0 0% 100% / 0.1);
+        background: hsl(0 0% 50% / 0.1);
         backdrop-filter: blur(1rem);
         -webkit-backdrop-filter: blur(1rem);
 
