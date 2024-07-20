@@ -659,7 +659,7 @@ p.hero-text_body {
     }
 
     h2.hero-text_main {
-        font-size: clamp(1rem, 14.5vw, 100vw);
+        font-size: clamp(1rem, 14vw, 100vw);
     }
 }
 
