@@ -1168,6 +1168,10 @@ section#about .col > .paper-content p {
     line-height: 1.8em;
 }
 
+section#about .col:first-child > .paper-content p {
+    margin-bottom: 10px;
+}
+
 section#about .col > .torn-paper {
     display: none;
     position: relative;
@@ -1247,6 +1251,10 @@ section#about > .container > .col:last-child > .paper-content .infobox-content p
     section#about .col > .paper-content {
         text-align: center;
         padding: 40px 30px 40px 30px;
+    }
+
+    section#about .col:first-child > .paper-content p {
+        font-size: 16px;
     }
 
     section#about .col:last-child > .paper-content {
