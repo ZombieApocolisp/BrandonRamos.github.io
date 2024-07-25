@@ -1,4 +1,4 @@
-const primaryNav = document.querySelector(".primary-navigation");
+const primaryNav = document.querySelector(".main-menu");
 const navToggle = document.querySelector(".mobile-nav-toggle");
 
 navToggle.addEventListener('click', () => {
