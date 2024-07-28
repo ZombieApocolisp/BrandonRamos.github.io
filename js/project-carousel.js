@@ -1,9 +1,9 @@
 const compass = document.getElementById('compass');
 const projectCarousel = document.getElementById('project-carousel');
-const projectCarouselTrack = document.querySelector('ul.project-carousel_track');
+const projectCarouselTrack = document.querySelector('.project-carousel__track');
 let projectItems = Array.from(document.getElementsByClassName('project_item'));
-const prevButton = document.querySelector('.prev-button');
-const nextButton = document.querySelector('.next-button');
+const prevButton = document.querySelector('.buttons-container__prev-button');
+const nextButton = document.querySelector('.buttons-container__next-button');
 
 // Notes for Future Development:
     //  Currently, the following snippet creates a slide clone, adds a class to it and removes the "current-item", "prev-item", and "next-item" classes if available,

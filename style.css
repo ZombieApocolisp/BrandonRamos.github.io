@@ -65,11 +65,11 @@ main {
     width: 100%;
 }
 
-.background-overlay {
+/* .background-overlay {
     position: absolute;
     height: 100%;
     width: 100%;
-}
+} */
 
 
 
@@ -710,7 +710,7 @@ button {
 
 
 /* ========= PROJECTS SECTION CSS ========= */
-section#projects {
+.projects-section {
     justify-content: center;
     align-items: center;
     height: auto;
@@ -722,7 +722,7 @@ section#projects {
     background-size: cover;
 }
 
-section#projects::before {
+.projects-section::before {
     content: "";
     display: block;
     position: absolute;
@@ -739,7 +739,7 @@ section#projects::before {
     z-index: 0;
 }
 
-section#projects::after {
+.projects-section::after {
     content: "";
     display: block;
     position: absolute;
@@ -757,7 +757,7 @@ section#projects::after {
     z-index: 0;
 }
 
-section#projects > .grid {
+.projects-section .grid {
     grid-template-columns: 33.33333% 66.66666%;
     grid-template-rows: 1fr;
     column-gap: 20px;
@@ -767,12 +767,12 @@ section#projects > .grid {
 
 
 /* --- Column: Compass Image --- */
-section#projects > .container > .col:first-child {
+.projects-section .col:first-child {
     justify-content: center;
     position: relative;
 }
 
-section#projects > .container > .col:first-child::after {
+.projects-section .col:first-child::after {
     content: "";
     display: block;
     position: absolute;
@@ -791,7 +791,7 @@ section#projects > .container > .col:first-child::after {
     z-index: 1;
 }
 
-img#compass {
+.compass {
     position: absolute;
     right: unset;
     width: 600px;
@@ -806,7 +806,7 @@ img#compass {
 
 
 /* --- Column: Project Carousel --- */
-section#projects > .container > .col:last-child {
+.projects-section .col:last-child {
     justify-content: center;
     align-items: center;
 }
@@ -814,7 +814,7 @@ section#projects > .container > .col:last-child {
 
 
 /* Project Carousel */
-div#project-carousel {
+.project-carousel {
     display: inline-block;
     position: relative;
     width: 100%;
@@ -822,7 +822,7 @@ div#project-carousel {
     z-index: 1;
 }
 
-ul.project-carousel_track {
+.project-carousel__track {
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-start;
@@ -837,16 +837,16 @@ ul.project-carousel_track {
     list-style: none;
 }
 
-ul.project-carousel_track::-webkit-scrollbar {
+.project-carousel__track::-webkit-scrollbar {
     display: none;
 }
 
-ul.project-carousel_track::-webkit-scrollbar-track {
+.project-carousel__track::-webkit-scrollbar-track {
     background: transparent;
     color: transparent;
 }
 
-ul.project-carousel_track::-webkit-scrollbar-thumb {
+.project-carousel__track::-webkit-scrollbar-thumb {
     background: transparent;
     color: transparent;
 }
@@ -869,7 +869,13 @@ ul.project-carousel_track::-webkit-scrollbar-thumb {
     z-index: 1;
 }
 
-.project_item > a.item {
+.project_item .item {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 100%;
     font-family: "Teko", sans-serif;
     text-transform: capitalize;
     font-size: 22px;
@@ -877,23 +883,14 @@ ul.project-carousel_track::-webkit-scrollbar-thumb {
     color: #000;
 }
 
-.project_item > a.item:hover {
+.project_item .item:hover {
     font-size: 52px;
     font-weight: 700;
     text-shadow: 0px 0px 10px #00000033;
     color: var(--highlight-color);
 }
 
-a.item {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-    width: 100%;
-}
-
-img.mockup {
+.mockup {
     width: 100%;
     max-height: 300px;
     height: 100%;
@@ -915,7 +912,7 @@ img.mockup {
     z-index: 2;
 }
 
-.project_item.current-item a.item {
+.project_item.current-item .item {
     font-family: "Teko", sans-serif;
     font-size: 52px;
     font-weight: 700;
@@ -925,14 +922,14 @@ img.mockup {
     transition-delay: font-family .3s, font-size .3s, font-weight .3s, text-transform .3s text-shadow .3s;
 }
 
-.project_item.current-item > a.item:hover > img.mockup {
+.project_item.current-item .item:hover .mockup {
     transform: scale(1.1);
 }
 
 
 
 /* Buttons Container */
-section#projects .buttons-container {
+.projects-section .buttons-container {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -941,7 +938,7 @@ section#projects .buttons-container {
     row-gap: 20px;
 }
 
-button.prev-button, button.next-button {
+.buttons-container__prev-button, .buttons-container__next-button {
     min-width: 150px;
     text-transform: uppercase;
     padding: 10px 18px;
@@ -955,25 +952,25 @@ button.prev-button, button.next-button {
 
 /* === RESPONSIVENESS: TABLET === */
 @media only screen and (max-width: 1024px) {
-    section#projects > .container {
+    .projects-section > .container {
         max-width: 100%;
     }
 
-    section#projects > .grid {
+    .projects-section .grid {
         grid-template-columns: 40% 60%;
         grid-template-rows: 1fr;
         column-gap: 40px;
     }
 
-    section#projects > .container > .col {
+    .projects-section .col {
         flex-wrap: wrap;
     }
 
-    section#projects > .container > .col:first-child {
+    .projects-section .col:first-child {
         width: calc(100% - 40px);
     }
 
-    section#projects > .container > .col:first-child::after {
+    .projects-section .col:first-child::after {
         right: unset;
         left: 0;
         width: 50vw;
@@ -986,36 +983,36 @@ button.prev-button, button.next-button {
             #ffffff00 90%);
     }
 
-    img#compass {
+    .compass {
         right: -180px;
     }
 
-    section#projects > .container > .col:last-child {
+    .projects-section .col:last-child {
         width: calc(100% - 40px);
     }
 }
 
 /* === RESPONSIVENESS: MOBILE === */
 @media only screen and (max-width: 767px) {
-    section#projects {
+    .projects-section {
         background-attachment: fixed;
     }
 
-    section#projects > .grid {
+    .projects-section .grid {
         grid-template-columns: 1fr;
         grid-template-rows: 2fr;
         column-gap: 0px;
         row-gap: 20px;
     }
 
-    section#projects::before {
+    .projects-section::before {
         background-image: linear-gradient(
             180deg,
             rgba(255,255,255,1) 0%,
             rgba(255,255,255,0.66) 100%);
     }
 
-    section#projects::after {
+    .projects-section::after {
         background-image: linear-gradient(
             90deg,
             rgba(255,255,255,0.33) 0%,
@@ -1023,18 +1020,18 @@ button.prev-button, button.next-button {
             rgba(255,255,255,0.33) 100%);
     }
 
-    section#projects > .container {
+    .projects-section > .container {
         padding-top: 0px;
         padding-bottom: 0px;
     }
 
     /* Column: Compass Image */
-    section#projects > .container > .col:first-child {
+    .projects-section .col:first-child {
         align-items: center;
         width: 100%;
     }
 
-    img#compass {
+    .compass {
         position: static;
         height: clamp(150px, 80vw, 300px);
         width: clamp(150px, 80vw, 300px);
@@ -1042,7 +1039,7 @@ button.prev-button, button.next-button {
         margin-bottom: -170px;
     }
 
-    section#projects > .container > .col:first-child::after {
+    .projects-section .col:first-child::after {
         top: 0px;
         left: -20px;
         bottom: 0px;
@@ -1056,15 +1053,15 @@ button.prev-button, button.next-button {
     }
 
      /* Column: Project Carousel */
-    section#projects > .container > .col:last-child {
+     .projects-section .col:last-child {
         width: 100%;
     }
 
-    div#project-carousel {
+    .project-carousel {
         height: 300px;
     }
 
-    ul.project-carousel_track {
+    .project-carousel__track {
         flex-flow: row nowrap;
         height: 300px;
         overflow: scroll hidden;
@@ -1075,31 +1072,31 @@ button.prev-button, button.next-button {
         padding: 0px 20px;
     }
 
-    a.item {
+    .item {
         height: 300px;
     }
 
-    img.mockup {
+    .mockup {
         max-height: 180px;
     }
 
-    .project_item.current-item a.item {
+    .project_item.current-item .item {
         font-size: 40px;
     }
 
     /* Button Container */
-    section#projects .buttons-container {
+    .projects-section .buttons-container {
         max-width: 90%;
         margin: 0px auto;
     }
 
-    button.prev-button, button.next-button {
+    .buttons-container__prev-button, .buttons-container__next-button {
         min-width: 90%;
     }
 }
 
 @media only screen and (max-width: 428px) {
-    section#projects > .container > .col:first-child::after {
+    .projects-section .col:first-child::after {
         background-image: radial-gradient(
             circle at center,
             #ffffff 25%,
@@ -1110,15 +1107,7 @@ button.prev-button, button.next-button {
 
 
 /* ========= ABOUT SECTION CSS ========= */
-section#about > .grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    column-gap: 30px;
-    row-gap: 20px;
-    z-index: 1;
-}
-
-section#about > .container {
+.about-section .container {
     min-height: 800px;
     background-image: url("images/coffee-stained-paper.png");
     background-position: center center;
@@ -1131,39 +1120,38 @@ section#about > .container {
     z-index: 2;
 }
 
-section#about .col {
+.about-section .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 30px;
+    row-gap: 20px;
+}
+
+.about-section .col.flex {
     justify-content: space-between;
 }
 
-section#about .col > .paper-content {
-    width: 100%;
+.journal {
     padding: 40px 20px 40px 30px;
 }
 
-section#about .col > .paper-content h2 {
+.journal__main-title {
     font-size: 52px;
     text-transform: uppercase;
 }
 
-section#about .col > .paper-content h3 {
-    font-size: 28px;
-}
-
-section#about .col > .paper-content p {
+.journal__text {
     font-size: 18px;
     line-height: 1.8em;
-}
-
-section#about .col:first-child > .paper-content p {
     margin-bottom: 10px;
 }
 
-section#about .col > .torn-paper {
+.about-section .torn-paper {
     display: none;
     position: relative;
     width: 100%;
     margin-top: 0px;
-    margin-bottom: -28px;
+    margin-bottom: -24px;
     background-image: url("images/paper-tear.png");
     background-position: center center;
     background-attachment: scroll;
@@ -1172,22 +1160,18 @@ section#about .col > .torn-paper {
     z-index: 2;
 }
 
-section#about .col > .torn-paper > .spacer {
+.about-section .torn-paper .spacer {
     min-height: 50px;
     transition: min-height .3s ease;
 }
 
-section#about > .container > .col:last-child > .paper-content .container.flex {
+.about-section .infobox.flex {
     flex-flow: row nowrap;
     align-items: flex-start;
 }
 
-section#about > .container > .col:last-child > .paper-content .infobox {
+.infobox {
     padding: 10px 0px;
-}
-
-section#about > .container > .col:last-child > .paper-content .infobox-content p {
-    font-size: 15px;
 }
 
 .infobox-icon {
@@ -1197,23 +1181,32 @@ section#about > .container > .col:last-child > .paper-content .infobox-content p
     height: 40px;
 }
 
+.infobox-content__text {
+    font-size: 15px;
+}
+
 /* === Responsiveness: Coffee Stained Paper Image === */
 @media only screen and (max-width:1200px) {
-    section#about > .container {
+    .about-section .container {
         min-height: 400px;
         background-image: none;
     }
 
-    section#about > .container > .col:first-child {
+    .about-section .col {
+        background-color: #e3c8a9;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    }
+
+    .about-section .container > .col:first-child {
         min-height: 400px;
         background-image: url("images/coffee-stained-paper_left-half.png");
         background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
-        border-radius: 15px 15px 25px 15px;
+        border-radius: 15px 15px 0px 0px;
     }
 
-    section#about > .container > .col:last-child {
+    .about-section .container > .col:last-child {
         min-height: 400px;
         background-image: url("images/coffee-stained-paper_right-half.png");
         background-position: top center;
@@ -1222,52 +1215,54 @@ section#about > .container > .col:last-child > .paper-content .infobox-content p
         border-radius: 15px;
     }
 
-    section#about .col > .paper-content {
-        padding: 40px 30px 40px 30px;
+    .journal {
+        padding: 40px 30px 0px 30px;
+    }
+
+    .journal.flex {
+        align-items: flex-start;
+    }
+
+    .journal__main-title {
+        align-self: center;
+    }
+
+    .about-section .torn-paper {
+        display: block;
     }
 }
 
 /* === Responsiveness: Tablet === */
 @media only screen and (max-width: 1024px) {
-    section#about > .container > .col {
+    .about-section .col {
         background-position: center center;
-        background-color: #e3c8a9;
-        box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
     }
 
-    section#about .col > .paper-content {
+    .journal__text {
         text-align: center;
-        padding: 40px 30px 40px 30px;
-    }
-
-    section#about .col:first-child > .paper-content p {
         font-size: 16px;
     }
 
-    section#about .col:last-child > .paper-content {
-        text-align: left;
-    }
-
-    section#about .col:last-child > .paper-content > .container.infobox {
+    .infobox {
         max-width: 100%;
         margin: 0px;
     }
 
-    section#about .col > .paper-content.flex {
-        align-items: center;
+    .about-section .torn-paper {
+        margin-bottom: -23px;
     }
 }
 
 /* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
-    section#about {
+    .about-section {
         background-image: url("images/mount-washington_topographic-map.jpg");
         background-position: center right;
         background-attachment: fixed;
         background-size: cover;
     }
 
-    section#about::before {
+    .about-section::before {
         content: "";
         display: block;
         position: absolute;
@@ -1282,7 +1277,7 @@ section#about > .container > .col:last-child > .paper-content .infobox-content p
         z-index: 0;
     }
 
-    section#about::after {
+    .about-section::after {
         content: "";
         display: block;
         position: absolute;
@@ -1298,66 +1293,50 @@ section#about > .container > .col:last-child > .paper-content .infobox-content p
         z-index: 0;
     }
 
-    section#about > .container {
+    .about-section .container {
         margin-bottom: -60px;
         padding-top: 0px;
     }
 
-    section#about > .grid {
+    .about-section .grid {
         grid-template-columns: 1fr;
         row-gap: 60px;
     }
 
-    section#about .col.flex {
-        align-items: center;
+    .about-section .col {
         text-align: center;
+        background-position: center center;
     }
 
-    section#about > .container > .col:first-child {
-        background-position: center center;
-        border-radius: 15px 15px 0px 0px;
+    .about-section .col.flex {
+        align-items: center;
+    }
+
+    .about-section .col:first-child {
         order: 2;
     }
 
-    section#about > .container > .col:last-child {
-        background-position: center center;
-        border-radius: 15px 15px 0px 0px;
+    .about-section .col:last-child {
         order: 1;
     }
 
-    section#about .col > .paper-content {
+    .journal {
         padding: 40px 20px 0px 20px;
     }
 
-    section#about .col > .paper-content h2 {
+    .journal__main-title {
         font-size: 42px;
         text-transform: uppercase;
     }
     
-    section#about .col > .paper-content h3 {
-        font-size: 24px;
-    }
-
-    section#about .col > .paper-content h4 {
-        font-size: 22px;
-        letter-spacing: 0.6px;
-    }
-    
-    section#about .col > .paper-content p {
+    .journal__text {
         font-size: 14px;
         line-height: 1.8em;
     }
-
-    section#about > .container > .col:first-child > .paper-content .infobox {
-        padding: 5px 0px;
-    }
     
-    section#about > .container > .col:last-child > .paper-content .infobox {
+    .infobox {
         padding: 5px 0px;
-    }
-
-    section#about > .container > .col:last-child > .paper-content .infobox-content p {
-        font-size: 14px;
+        text-align: left;
     }
 
     .infobox-icon {
@@ -1367,7 +1346,16 @@ section#about > .container > .col:last-child > .paper-content .infobox-content p
         height: 20px;
     }
 
-    section#about .col > .torn-paper {
+    .infobox-content__title {
+        font-size: 22px;
+        letter-spacing: 0.6px;
+    }
+
+    .infobox-content__text {
+        font-size: 14px;
+    }
+
+    .about-section .torn-paper {
         display: block;
         margin-bottom: -24px;
     }
@@ -1594,13 +1582,17 @@ section#about > .container > .col:last-child > .paper-content .infobox-content p
     align-items: center;
 }
 
-.footer .col:nth-child(2) ul {
-    list-style-type: none;
-}
-
 .footer__heading {
     text-transform: uppercase;
     margin-bottom: 10px;
+}
+
+.footer ul.footer__contact-list {
+    list-style-type: none;
+}
+
+.footer__contact-list i {
+    margin-right: 5px;
 }
 
 .footer__email {
@@ -1609,10 +1601,6 @@ section#about > .container > .col:last-child > .paper-content .infobox-content p
     text-transform: uppercase;
     text-shadow: 0px 0px 10px #00000033;
     color: var(--highlight-color);
-}
-
-.footer i {
-    margin-right: 5px;
 }
 
 .footer__social-media.container {
