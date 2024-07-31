@@ -841,7 +841,8 @@ button {
     z-index: 1;
 }
 
-.project_item .item {
+/* Incase I want to resuse for later */
+/* .project_item .item {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -853,14 +854,31 @@ button {
     font-size: 22px;
     padding: 0px;
     color: #000;
+} */
+
+.project_item .item {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 100%;
+    font-family: "Teko", sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-shadow: 0px 0px 2px #00000020;
+    color: var(--highlight-color);
+    padding: 0px;
+    z-index: 2;
 }
 
-.project_item .item:hover {
+/* .project_item .item:hover {
     font-size: 52px;
     font-weight: 700;
     text-shadow: 0px 0px 10px #00000033;
     color: var(--highlight-color);
-}
+} */
 
 .mockup {
     width: 100%;
@@ -872,6 +890,10 @@ button {
     transition: all .3s ease;
 }
 
+.project_item .item:hover .mockup {
+    transform: scale(1.1);
+}
+
 .text-wrap {
     display: block;
     text-align: center;
@@ -880,11 +902,11 @@ button {
 
 
 /* Project Carousel - Current Slide/Item */
-.project_item.current-item {
+/* .project_item.current-item {
     z-index: 2;
-}
+} */
 
-.project_item.current-item .item {
+/* .project_item.current-item .item {
     font-family: "Teko", sans-serif;
     font-size: 52px;
     font-weight: 700;
@@ -892,11 +914,11 @@ button {
     text-shadow: 0px 0px 2px #00000020;
     color: var(--highlight-color);
     transition-delay: font-family .3s, font-size .3s, font-weight .3s, text-transform .3s text-shadow .3s;
-}
+} */
 
-.project_item.current-item .item:hover .mockup {
+/* .project_item.current-item .item:hover .mockup {
     transform: scale(1.1);
-}
+} */
 
 
 
