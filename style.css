@@ -27,7 +27,6 @@ main {
 }
 
 /* === Utility Classes === */
-
 .grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -65,12 +64,6 @@ main {
     width: 100%;
 }
 
-/* .background-overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-} */
-
 
 
 /* === Responsiveness: Tablet === */
@@ -93,7 +86,6 @@ main {
 
 
 /* ========= FONT CSS ========= */
-
 h1, h2, h3, h4, h5, h6, p, a, div, button {
     text-rendering: optimizeLegibility;
     font-family: "Montserrat", sans-serif;
@@ -158,7 +150,6 @@ p {
 
 
 /* ========= BUTTON STYLES CSS ========= */
-
 button {
     font-size: 16px;
     font-weight: 400;
@@ -173,7 +164,6 @@ button {
 
 
 /* ========= MISCELLANEOUS ========= */
-
 .d-only {
     display: inline-block;
 }
@@ -185,23 +175,6 @@ button {
 .m-only {
     display: none;
 }
-
-
-
-/* === Responsiveness: Tablet === */
-/* @media only screen and (max-width: 1024px) {
-    .d-only {
-        display: none;
-    }
-
-    .t-only {
-        display: inline-block;
-    }
-
-    .m-only {
-        display: none;
-    }
-} */
 
 
 
@@ -223,7 +196,6 @@ button {
 
 
 /* ========= HEADER CSS ========= */
-
 .header {
     position: absolute;
     background: transparent;
@@ -497,7 +469,7 @@ button {
     height: clamp(600px, 100vh, 100vh);
     padding: 120px 0px;
     background: #7f978c;
-    background-image: url("images/hero_background-image_no-subject.jpg");
+    background-image: url("images/hero-section__background-image--no-subject.jpg");
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -665,7 +637,7 @@ button {
 /* ========= SECTION DIVIDER: CLOUDS CSS ========= */
 .section-divider__clouds {
     margin-top: -340px;
-    background-image: url("images/clouds_expanded.png");
+    background-image: url("images/clouds.png");
     background-position: top right;
     background-attachment: scroll;
     background-repeat: no-repeat;
@@ -673,7 +645,7 @@ button {
 }
 
 .section-divider__clouds--flipped {
-    background-image: url("images/clouds_expanded_flipped-x.png");
+    background-image: url("images/clouds--flipped-x.png");
 }
 
 .section-divider__clouds .spacer {
@@ -715,7 +687,7 @@ button {
     align-items: center;
     height: auto;
     min-height: 400px;
-    background-image: url("images/mount-washington_topographic-map.jpg");
+    background-image: url("images/mount-washington-topographic-map.jpg");
     background-position: center right;
     background-attachment: scroll;
     background-repeat: no-repeat;
@@ -1199,7 +1171,7 @@ button {
 
     .about-section .container > .col:first-child {
         min-height: 400px;
-        background-image: url("images/coffee-stained-paper_left-half.png");
+        background-image: url("images/coffee-stained-paper__left-half.png");
         background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -1208,7 +1180,7 @@ button {
 
     .about-section .container > .col:last-child {
         min-height: 400px;
-        background-image: url("images/coffee-stained-paper_right-half.png");
+        background-image: url("images/coffee-stained-paper__right-half.png");
         background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -1256,7 +1228,7 @@ button {
 /* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     .about-section {
-        background-image: url("images/mount-washington_topographic-map.jpg");
+        background-image: url("images/mount-washington-topographic-map.jpg");
         background-position: center right;
         background-attachment: fixed;
         background-size: cover;
@@ -1410,7 +1382,7 @@ button {
     height: clamp(600px, 100vh, 100vh);
     padding: 0px 0px 60px 0px;
     background: #7f978c;
-    background-image: url("images/cta_background-image.jpg");
+    background-image: url("images/cta-section__background-image.jpg");
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
