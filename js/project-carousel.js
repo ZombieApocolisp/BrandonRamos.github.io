@@ -253,6 +253,11 @@ window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
 
+// Resets the Scroll Position for the carousel on page reload --> ON FIREFOX
+window.onload = function () {
+    projectCarouselTrack.scrollTop = 0;
+}
+
 
 
 // Button Event Listeners
