@@ -471,6 +471,7 @@ button {
     background: #7f978c;
     background-image: url("images/hero-section__background-image--no-subject.jpg");
     background-position: center center;
+    background-attachment: scroll; /* For Safari Browser */
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
