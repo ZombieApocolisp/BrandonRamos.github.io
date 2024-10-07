@@ -471,8 +471,7 @@ button {
     background: #7f978c;
     background-image: url("images/hero-section__background-image--no-subject.jpg");
     background-position: center center;
-    background-attachment: fixed;
-    -webkit-background-attachment: scroll; /* For Safari Browser */
+    background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1416,7 +1415,7 @@ button {
     background: #7f978c;
     background-image: url("images/cta-section__background-image.jpg");
     background-position: center center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-repeat: no-repeat;
     background-size: cover;
 }
