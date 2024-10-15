@@ -465,6 +465,8 @@ button {
 
 
 /* ========= HERO SECTION CSS ========= */
+
+/* === LAYOUT === */
 .hero-section {
     height: clamp(600px, 100vh, 100vh);
     padding: 120px 0px;
@@ -505,6 +507,7 @@ button {
     grid-template-rows: 1fr;
 }
 
+/* --- Headers Styling --- */
 .hero-section__sub-text {
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
@@ -554,6 +557,7 @@ button {
     filter: brightness(110%) contrast(200%);
 }
 
+/* --- Spacer Element --- */
 .hero-section .spacer {
     height: 100%;
 }
@@ -682,6 +686,8 @@ button {
 
 
 /* ========= PROJECTS SECTION CSS ========= */
+
+/* === LAYOUT === */
 .projects-section {
     justify-content: center;
     align-items: center;
@@ -841,7 +847,7 @@ button {
     z-index: 1;
 }
 
-/* Incase I want to resuse for later */
+/* In case I want to reuse for later */
 /* .project_item .item {
     display: flex;
     flex-flow: column nowrap;
@@ -1101,6 +1107,8 @@ button {
 
 
 /* ========= ABOUT SECTION CSS ========= */
+
+/* === LAYOUT === */
 .about-section .container {
     min-height: 800px;
     background-image: url("images/coffee-stained-paper.png");
@@ -1129,17 +1137,20 @@ button {
     padding: 40px 20px 40px 30px;
 }
 
+/* --- Headers Styling --- */
 .journal__main-title {
     font-size: 52px;
     text-transform: uppercase;
 }
 
+/* --- Body Text Styling --- */
 .journal__text {
     font-size: 18px;
     line-height: 1.8em;
     margin-bottom: 10px;
 }
 
+/* --- Torn Paper Elements on Small Devices --- */
 .about-section .torn-paper {
     display: none;
     position: relative;
@@ -1159,6 +1170,7 @@ button {
     transition: min-height .3s ease;
 }
 
+/* --- Info Box Styling --- */
 .about-section .infobox.flex {
     flex-flow: row nowrap;
     align-items: flex-start;
@@ -1367,6 +1379,7 @@ button {
 
 
 /* ========= SECTION DIVIDER: PAPER TEARS CSS ========= */
+
 .section-divider__paper-tear {
     margin-top: 0px;
     margin-bottom: -22px;
@@ -1409,6 +1422,7 @@ button {
 
 /* ========= CALL TO ACTION SECTION CSS ========= */
 
+/* === LAYOUT === */
 .cta-section {
     height: clamp(600px, 100vh, 100vh);
     padding: 0px 0px 60px 0px;
@@ -1441,6 +1455,7 @@ button {
     );
 }
 
+/* --- Headers Styling --- */
 .cta-section__sub-text {
     position: relative;
     font-family: "Montserrat", sans-serif;
@@ -1568,6 +1583,7 @@ button {
 
 /* ========= FOOTER SECTION CSS ========= */
 
+/* === LAYOUT === */
 .footer {
     margin-top: -60px;
 }
@@ -1585,12 +1601,14 @@ button {
     align-items: center;
 }
 
+/* --- Headers Styling --- */
 .footer__heading {
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
-.footer ul.footer__contact-list {
+/* --- Contact List Element --- */
+.footer__contact-list {
     list-style-type: none;
 }
 
@@ -1606,6 +1624,7 @@ button {
     color: var(--highlight-color);
 }
 
+/* --- Social Media Elements: Container --- */
 .footer__social-media.container {
     max-width: 100%;
     padding: 0px;
@@ -1617,10 +1636,12 @@ button {
     column-gap: 10px;
 }
 
+/* --- Social Media Elements: Links --- */
 .social-media__link:hover {
     fill: var(--highlight-color);
 }
 
+/* --- Social Media Elements: SVGs --- */
 .github_svg, .instagram_svg, .linkedin_svg {
     height: 1.25rem;
 }
