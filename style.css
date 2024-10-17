@@ -778,7 +778,7 @@ button {
     z-index: 1;
     margin-top: -100px;
     margin-bottom: -100px;
-    transition: all .3s ease;
+    transition: .3s;
 }
 
 
@@ -1091,7 +1091,7 @@ button {
     }
 
     .buttons-container__prev-button, .buttons-container__next-button {
-        min-width: 90%;
+        min-width: 120px;
     }
 }
 

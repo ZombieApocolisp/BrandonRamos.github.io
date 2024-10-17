@@ -1,262 +1,243 @@
+const mobileScreenSizes = window.matchMedia("(max-width:767px)");
+
 const projectCarousel = document.getElementById('project-carousel');
-const projectCarouselTrack = document.querySelector('.project-carousel__track');
-let projectItems = Array.from(document.getElementsByClassName('project_item'));
+const projectCarouselTrack = projectCarousel.querySelector('.project-carousel__track');
+const projectItems = Array.from(projectCarouselTrack.getElementsByClassName('project_item'));
 
 const firstItemIndex = 0;
 const lastItemIndex = projectItems.length - 1;
-let activeItem = 0;
+const allTrackItems = projectItems.length;
 
-let numberOfTrackItems = projectItems.length;
+let activeSlide = 0;
+let prevSlide = activeSlide - 1;
+let nextSlide = activeSlide + 1;
+
+let slideHeight = projectItems[0].clientHeight;
+let slideWidth = projectItems[0].clientWidth;
+let slideMaxHeight = (slideHeight * allTrackItems) - slideHeight;
+let slideMaxWidth = (slideWidth * allTrackItems) - slideWidth;
 
 let currentSliderScrollPos = 0;
-let itemHeight = projectItems[0].clientHeight;
-let itemWidth = projectItems[0].clientWidth;
-let itemMaxHeight = (numberOfTrackItems * itemHeight) - itemHeight;
-let itemMaxWidth = (numberOfTrackItems * itemWidth) - itemWidth;
+let newSliderScrollPos;
 
-var mobileScreenSizes = window.matchMedia("(max-width:767px)");
-
-const goToPrevItem = () => {
-    document.getElementById('carousel-button').disabled = true;
-    let prevItem = activeItem - 1;
-    let nextItem = activeItem + 1;
-    let newSliderScrollPos;
-
-    projectItems.forEach(item => {
-        item.classList.remove('prev-item', 'current-item', 'next-item');
-    });
-
-    switch(mobileScreenSizes.matches) {
-        case true:
-            if (activeItem === firstItemIndex) {
-                projectItems[firstItemIndex].classList.add('next-item');
-                projectItems[lastItemIndex].classList.add('current-item');
-        
-                activeItem = lastItemIndex;
-                prevItem = activeItem - 1;
-                nextItem = firstItemIndex;
-                projectItems[prevItem].classList.add('prev-item');
-        
-                newSliderScrollPos = itemMaxWidth;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
-            } else if (activeItem === lastItemIndex) {
-                projectItems[lastItemIndex].classList.add('next-item');
-                projectItems[prevItem].classList.add('current-item');
-        
-                activeItem = lastItemIndex - 1;
-                prevItem = activeItem - 1;
-                nextItem = lastItemIndex;
-                projectItems[prevItem].classList.add('prev-item');
-        
-                newSliderScrollPos = itemMaxWidth - itemWidth;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
-            } else {
-                projectItems[prevItem].classList.add('current-item');
-                projectItems[activeItem].classList.add('next-item');
-        
-                activeItem = prevItem;
-                
-                if (prevItem === firstItemIndex) {
-                    prevItem = lastItemIndex;
-                } else {
-                    prevItem = activeItem - 1;
-                }
-        
-                nextItem = activeItem + 1;
-                projectItems[prevItem].classList.add('prev-item');
-        
-                newSliderScrollPos = currentSliderScrollPos - itemWidth;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
-            };
-            break;
-        default:
-            if (activeItem === firstItemIndex) {
-                projectItems[firstItemIndex].classList.add('next-item');
-                projectItems[lastItemIndex].classList.add('current-item');
-        
-                activeItem = lastItemIndex;
-                prevItem = activeItem - 1;
-                nextItem = firstItemIndex;
-                projectItems[prevItem].classList.add('prev-item');
-        
-                newSliderScrollPos = itemMaxHeight;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-            } else if (activeItem === lastItemIndex) {
-                projectItems[lastItemIndex].classList.add('next-item');
-                projectItems[prevItem].classList.add('current-item');
-        
-                activeItem = lastItemIndex - 1;
-                prevItem = activeItem - 1;
-                nextItem = lastItemIndex;
-                projectItems[prevItem].classList.add('prev-item');
-        
-                newSliderScrollPos = itemMaxHeight - itemHeight;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-            } else {
-                projectItems[prevItem].classList.add('current-item');
-                projectItems[activeItem].classList.add('next-item');
-        
-                activeItem = prevItem;
-                
-                if (prevItem === firstItemIndex) {
-                    prevItem = lastItemIndex;
-                } else {
-                    prevItem = activeItem - 1;
-                }
-        
-                nextItem = activeItem + 1;
-                projectItems[prevItem].classList.add('prev-item');
-        
-                newSliderScrollPos = currentSliderScrollPos - itemHeight;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-            };
-    };
-
-    rotateCompass();
-    document.getElementById('carousel-button').disabled = false;
+// Function that adds in the current, prev, and next classes to their respective slides
+const addClasses = (active, prev, next) => {
+    projectItems[active].classList.add('current-item');
+    projectItems[prev].classList.add('prev-item');
+    projectItems[next].classList.add('next-item');
 };
-
-const goToNextItem = () => {
-    document.getElementById('carousel-button').disabled = true;
-    let prevItem = activeItem - 1;
-    let nextItem = activeItem + 1;
-    let newSliderScrollPos;
-
-    projectItems.forEach(item => {
-        item.classList.remove('prev-item', 'current-item', 'next-item');
-    });
-
-    switch(mobileScreenSizes.matches) {
-        case true:
-            if (activeItem === firstItemIndex) {
-                projectItems[firstItemIndex].classList.add('prev-item');
-                projectItems[nextItem].classList.add('current-item');
-        
-                activeItem = nextItem;
-                prevItem = firstItemIndex;
-                nextItem = activeItem + 1;
-                projectItems[nextItem].classList.add('next-item');
-        
-                newSliderScrollPos = currentSliderScrollPos + itemWidth;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
-            } else if (activeItem === lastItemIndex) {
-                projectItems[firstItemIndex].classList.add('current-item');
-                projectItems[lastItemIndex].classList.add('prev-item');
-        
-                activeItem = firstItemIndex;
-                prevItem = lastItemIndex;
-                nextItem = activeItem + 1;
-                projectItems[nextItem].classList.add('next-item');
-        
-                newSliderScrollPos = firstItemIndex;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
-            } else {
-                projectItems[activeItem].classList.add('prev-item');
-                projectItems[nextItem].classList.add('current-item');
-        
-                activeItem = nextItem;
-                
-                if (nextItem === lastItemIndex) {
-                    nextItem = firstItemIndex;
-                } else {
-                    nextItem = activeItem + 1;
-                }
-        
-                projectItems[nextItem].classList.add('next-item');
-                prevItem = activeItem - 1;
-        
-                newSliderScrollPos = currentSliderScrollPos + itemWidth;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(newSliderScrollPos, 0);
-            };
-            break;
-        default:
-            if (activeItem === firstItemIndex) {
-                projectItems[firstItemIndex].classList.add('prev-item');
-                projectItems[nextItem].classList.add('current-item');
-        
-                activeItem = nextItem;
-                prevItem = firstItemIndex;
-                nextItem = activeItem + 1;
-                projectItems[nextItem].classList.add('next-item');
-        
-                newSliderScrollPos = currentSliderScrollPos + itemHeight;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-            } else if (activeItem === lastItemIndex) {
-                projectItems[firstItemIndex].classList.add('current-item');
-                projectItems[lastItemIndex].classList.add('prev-item');
-        
-                activeItem = firstItemIndex;
-                prevItem = lastItemIndex;
-                nextItem = activeItem + 1;
-                projectItems[nextItem].classList.add('next-item');
-        
-                newSliderScrollPos = firstItemIndex;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-            } else {
-                projectItems[activeItem].classList.add('prev-item');
-                projectItems[nextItem].classList.add('current-item');
-        
-                activeItem = nextItem;
-                
-                if (nextItem === lastItemIndex) {
-                    nextItem = firstItemIndex;
-                } else {
-                    nextItem = activeItem + 1;
-                }
-        
-                projectItems[nextItem].classList.add('next-item');
-                prevItem = activeItem - 1;
-        
-                newSliderScrollPos = currentSliderScrollPos + itemHeight;
-                currentSliderScrollPos = newSliderScrollPos;
-                projectCarouselTrack.scrollTo(0, newSliderScrollPos);
-            };
-    };
-
-    rotateCompass();
-    document.getElementById('carousel-button').disabled = false;
-};
-
-
 
 // Compass Rotation Function
 const compass = document.getElementById('compass');
+const angle = 360 / allTrackItems;
+let rotateDegree = 0;
+let counterClockwise;
+let clockwise;
 
-function rotateCompass() {
+function rotateCompass(counterClockwise, clockwise) {
+    if (clockwise) {
+        rotateDegree += angle;
+        compass.style.transform = `rotate(${rotateDegree}deg)`;
+        return rotateDegree;
+    } else if (counterClockwise) {
+        rotateDegree -= angle;
+        compass.style.transform = `rotate(${rotateDegree}deg)`;
+        return rotateDegree;
+    };
+}; 
+
+
+
+// Prev Button Functionality
+function goToPrevItem() {
+    document.getElementById('carousel-button').disabled = true;
+
+    // Removes the current, prev, and next classes from the slides
     projectItems.forEach(slide => {
-        let classCheck = slide.classList.contains('current-item');
-
-        if (classCheck == true) {
-            let index = projectItems.indexOf(slide);
-            let itemsTotal = projectItems.length;
-            let angle = (360 / itemsTotal) * index;
-            compass.style.transform = 'rotate(' + angle + 'deg)';
-        };
+        slide.classList.remove('prev-item', 'current-item', 'next-item');
     });
+
+    switch(mobileScreenSizes.matches) {
+        case true:
+            if (activeSlide === firstItemIndex) {
+                activeSlide = lastItemIndex;
+                prevSlide = activeSlide - 1;
+                nextSlide = firstItemIndex;
+
+                newSliderScrollPos = slideMaxWidth;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(currentSliderScrollPos, 0);
+            } else if (activeSlide === lastItemIndex) {
+                activeSlide = lastItemIndex - 1;
+                prevSlide = activeSlide - 1;
+                nextSlide = activeSlide + 1;
+
+                newSliderScrollPos = slideMaxWidth - slideWidth;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(currentSliderScrollPos, 0);
+            } else {
+                activeSlide = activeSlide - 1;
+
+                if (prevSlide === firstItemIndex) {
+                    prevSlide = lastItemIndex;
+                } else {
+                    prevSlide = activeSlide - 1;
+                };
+
+                nextSlide = activeSlide + 1;
+        
+                newSliderScrollPos = currentSliderScrollPos - slideWidth;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(currentSliderScrollPos, 0);
+            };
+
+            break;
+
+        default:
+            if (activeSlide === firstItemIndex) {
+                activeSlide = lastItemIndex;
+                prevSlide = activeSlide - 1;
+                nextSlide = firstItemIndex;
+
+                newSliderScrollPos = slideMaxHeight;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, currentSliderScrollPos);
+            } else if (activeSlide === lastItemIndex) {
+                activeSlide = lastItemIndex - 1;
+                prevSlide = activeSlide - 1;
+                nextSlide = activeSlide + 1;
+
+                newSliderScrollPos = slideMaxHeight - slideHeight;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, currentSliderScrollPos);
+            } else {
+                activeSlide = activeSlide - 1;
+
+                if (prevSlide === firstItemIndex) {
+                    prevSlide = lastItemIndex;
+                } else {
+                    prevSlide = activeSlide - 1;
+                };
+
+                nextSlide = activeSlide + 1;
+        
+                newSliderScrollPos = currentSliderScrollPos - slideHeight;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, currentSliderScrollPos);
+            };
+    };
+
+    counterClockwise = true;
+    rotateCompass(counterClockwise, null);
+    counterClockwise = false;
+
+    addClasses(activeSlide, prevSlide, nextSlide);
+
+    document.getElementById('carousel-button').disabled = false;
+};
+
+
+
+// Next Button Functionality
+function goToNextItem() {
+    document.getElementById('carousel-button').disabled = true;
+
+    // Removes the current, prev, and next classes from the slides
+    projectItems.forEach(slide => {
+        slide.classList.remove('prev-item', 'current-item', 'next-item');
+    });
+
+    switch(mobileScreenSizes.matches) {
+        case true:
+            if (activeSlide === firstItemIndex) {
+                activeSlide = firstItemIndex + 1;
+                prevSlide = activeSlide - 1;
+                nextSlide = activeSlide + 1;
+        
+                newSliderScrollPos = currentSliderScrollPos + slideWidth;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(currentSliderScrollPos, 0);
+            } else if (activeSlide === lastItemIndex) {
+                activeSlide = firstItemIndex;
+                prevSlide = lastItemIndex;
+                nextSlide = activeSlide + 1;
+        
+                newSliderScrollPos = firstItemIndex;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(currentSliderScrollPos, 0);
+            } else {
+                activeSlide = activeSlide + 1;
+                
+                if (nextSlide === lastItemIndex) {
+                    nextSlide = firstItemIndex;
+                } else {
+                    nextSlide = activeSlide + 1;
+                };
+
+                prevSlide = activeSlide - 1;
+
+                newSliderScrollPos = currentSliderScrollPos + slideWidth;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(currentSliderScrollPos, 0);
+            };
+
+            break;
+
+        default:
+            if (activeSlide === firstItemIndex) {
+                activeSlide = firstItemIndex + 1;
+                prevSlide = activeSlide - 1;
+                nextSlide = activeSlide + 1;
+        
+                newSliderScrollPos = currentSliderScrollPos + slideHeight;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, currentSliderScrollPos);
+            } else if (activeSlide === lastItemIndex) {
+                activeSlide = firstItemIndex;
+                prevSlide = lastItemIndex;
+                nextSlide = activeSlide + 1;
+        
+                newSliderScrollPos = firstItemIndex;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, currentSliderScrollPos);
+            } else {
+                activeSlide = activeSlide + 1;
+                
+                if (nextSlide === lastItemIndex) {
+                    nextSlide = firstItemIndex;
+                } else {
+                    nextSlide = activeSlide + 1;
+                };
+
+                prevSlide = activeSlide - 1;
+
+                newSliderScrollPos = currentSliderScrollPos + slideHeight;
+                currentSliderScrollPos = newSliderScrollPos;
+                projectCarouselTrack.scrollTo(0, currentSliderScrollPos);
+            };
+    };
+
+    clockwise = true;
+    rotateCompass(null, clockwise);
+    clockwise = false;
+
+    addClasses(activeSlide, prevSlide, nextSlide);
+
+    document.getElementById('carousel-button').disabled = false;
 };
 
 
 
 // Resets the Scroll Position for the carousel on page reload --> ON CHROME
-window.onbeforeunload = function () {
+window.onbeforeunload = () => {
     window.scrollTo(0, 0);
-}
+};
 
 // Resets the Scroll Position for the carousel on page reload --> ON FIREFOX
-window.onload = function () {
+window.onload = () => {
     projectCarouselTrack.scrollTop = 0;
-}
+    projectCarouselTrack.scrollLeft = 0;
+};
 
 
 
