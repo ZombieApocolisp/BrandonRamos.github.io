@@ -207,7 +207,7 @@ button {
     content: "";
     display: block;
     position: absolute;
-    top: 101px;
+    top: 100px;
     left: 45px;
     width: 3px;
     height: 100vh;
