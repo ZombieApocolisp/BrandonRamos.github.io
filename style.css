@@ -207,7 +207,7 @@ button {
     content: "";
     display: block;
     position: absolute;
-    top: 99px;
+    top: 101px;
     left: 45px;
     width: 3px;
     height: 100vh;
@@ -416,6 +416,7 @@ button {
 @media only screen and (max-width: 767px) {
     .header .container::before {
         height: 490px;
+        top: 99px;
     }
 
     .main-menu {
