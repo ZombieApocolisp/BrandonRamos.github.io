@@ -492,7 +492,7 @@ button {
     height: clamp(600px, 100vh, 100vh);
     padding: 120px 0px;
     background: #7f978c;
-    background-image: url("images/hero-section__background-image--no-subject.jpg");
+    background-image: url("images/hero-section__background-image--no-subject.webp");
     background-position: center center;
     background-attachment: scroll;
     background-repeat: no-repeat;
@@ -682,7 +682,7 @@ button {
 /* ========= SECTION DIVIDER: CLOUDS CSS ========= */
 .section-divider__clouds {
     margin-top: -340px;
-    background-image: url("images/clouds.png");
+    background-image: url("images/clouds.webp");
     background-position: top right;
     background-attachment: scroll;
     background-repeat: no-repeat;
@@ -690,7 +690,7 @@ button {
 }
 
 .section-divider__clouds--flipped {
-    background-image: url("images/clouds--flipped-x.png");
+    background-image: url("images/clouds--flipped-x.webp");
 }
 
 .section-divider__clouds .spacer {
@@ -734,7 +734,7 @@ button {
     align-items: center;
     height: auto;
     min-height: 400px;
-    background-image: url("images/mount-washington-topographic-map.jpg");
+    background-image: url("images/mount-washington-topographic-map.webp");
     background-position: center right;
     background-attachment: scroll;
     background-repeat: no-repeat;
@@ -1155,7 +1155,7 @@ button {
 /* === LAYOUT === */
 .about-section .container {
     min-height: 800px;
-    /* background-image: url("images/coffee-stained-paper.png"); */
+    /* background-image: url("images/coffee-stained-paper.webp"); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1197,7 +1197,7 @@ button {
     width: 100%;
     margin-top: 0px;
     margin-bottom: -24px;
-    background-image: url("images/paper-tear.png");
+    background-image: url("images/paper-tear.webp");
     background-position: center center;
     background-attachment: scroll;
     background-repeat: repeat-x;
@@ -1245,7 +1245,7 @@ button {
 
     .about-section .container > .col:first-child {
         min-height: 400px;
-        background-image: url("images/coffee-stained-paper__left-half.png");
+        background-image: url("images/coffee-stained-paper__left-half.webp");
         background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -1254,7 +1254,7 @@ button {
 
     .about-section .container > .col:last-child {
         min-height: 400px;
-        background-image: url("images/coffee-stained-paper__right-half.png");
+        background-image: url("images/coffee-stained-paper__right-half.webp");
         background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -1311,7 +1311,7 @@ button {
 /* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     .about-section {
-        background-image: url("images/mount-washington-topographic-map.jpg");
+        background-image: url("images/mount-washington-topographic-map.webp");
         background-position: center right;
         background-attachment: fixed;
         background-size: cover;
@@ -1422,7 +1422,7 @@ button {
 .section-divider__paper-tear {
     margin-top: 0px;
     margin-bottom: -22px;
-    background-image: url("images/paper-tear.png");
+    background-image: url("images/paper-tear.webp");
     background-position: center bottom;
     background-attachment: scroll;
     background-repeat: repeat-x;
@@ -1466,7 +1466,7 @@ button {
     height: clamp(600px, 100vh, 100vh);
     padding: 0px 0px 60px 0px;
     background: #7f978c;
-    background-image: url("images/cta-section__background-image.jpg");
+    background-image: url("images/cta-section__background-image.webp");
     background-position: center center;
     background-attachment: scroll;
     background-repeat: no-repeat;
