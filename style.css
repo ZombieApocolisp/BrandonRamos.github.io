@@ -489,7 +489,7 @@ button {
 
 /* === LAYOUT === */
 .hero-section {
-    height: clamp(600px, 100vh, 100vh);
+    height: 100vh;
     padding: 120px 0px;
     background: #7f978c;
     background-image: url("images/hero-section__background-image--no-subject.webp");
@@ -605,7 +605,7 @@ button {
 @media only screen and (max-width: 1024px) {
     .hero-section {
         background-position: 75% 50%;
-        height: clamp(600px, 75vh, 100vh);
+        /* height: clamp(600px, 75vh, 100vh); */
     }
 
     .hero-section::before {
@@ -661,7 +661,7 @@ button {
 /* === Responsiveness: screen sizes < 428px === */
 @media only screen and (max-width: 428px) {
     .hero-section {
-        height: clamp(550px, 72vh, 100vh);
+        /* height: clamp(550px, 72vh, 100vh); */
         background-position: 100% 50%;
         background-attachment: scroll;
         padding-bottom: 60px;
