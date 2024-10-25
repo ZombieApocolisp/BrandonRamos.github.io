@@ -1588,7 +1588,7 @@ button {
     }
 
     .cta-section__main-text {
-        font-size: 112px;
+        font-size: 124px;
     }
 }
 
@@ -1619,7 +1619,7 @@ button {
 /* === Responsiveness: Screen Sizes < 428px === */
 @media only screen and (max-width: 428px) {
     .cta-section {
-        height: clamp(550px, 66vh, 100vh);
+        height: 600px;
     }
 
     .cta-section__sub-text {
@@ -1628,7 +1628,7 @@ button {
     }
 
     .cta-section__main-text {
-        font-size: clamp(1rem, 15vw, 100vw);
+        font-size: clamp(1rem, 13vw, 100vw);
     }
 }
 
