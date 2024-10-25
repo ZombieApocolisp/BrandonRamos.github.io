@@ -1689,6 +1689,7 @@ button {
 
 /* --- Headers Styling --- */
 .footer__heading {
+    font-size: 20px;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
