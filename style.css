@@ -1659,9 +1659,9 @@ button {
 
 /* === Responsiveness: Screen Sizes < 428px === */
 @media only screen and (max-width: 428px) {
-    .cta-section {
-        /* height: 600px; */
-    }
+    /* .cta-section {
+        height: 600px;
+    } */
 
     .cta-section__sub-text {
         font-size: clamp(11px, 2.5vw, 100vw);
