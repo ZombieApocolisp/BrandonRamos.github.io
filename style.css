@@ -74,6 +74,10 @@ header, section, footer, div {
 
 /* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
+    .flex {
+        row-gap: 10px;
+    }
+
     .container {
         max-width: 90%;
     }
@@ -415,6 +419,7 @@ button {
 /* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     .header .container::before {
+        display: none;
         height: 490px;
         top: 99px;
     }
@@ -487,10 +492,12 @@ button {
 
 /* ========= HERO SECTION CSS ========= */
 
+
+
 /* === LAYOUT === */
 .hero-section {
-    height: 100vh;
-    padding: 120px 0px;
+    height: 900px;
+    padding: 90px 0px 150px 0px;
     background: #7f978c;
     background-image: url("images/hero-section__background-image--no-subject.webp");
     background-position: center center;
@@ -590,9 +597,9 @@ button {
 /* === Responsiveness: MDPI Laptop === */
 @media only screen and (max-width: 1280px) {
     .hero-section .container {
-        max-width: 95%;
+        /* max-width: 95%; */
         width: 100%;
-        padding: 60px 2% 60px calc(2% + 53px);
+        padding: 60px 2% 60px calc(2% + 33px);
     }
 
     .hero-section__sub-text {
@@ -644,15 +651,26 @@ button {
     }
 
     .hero-section .container {
-        padding-top: 0px;
+        padding: 60px 0px;
     }
 
     .hero-section__sub-text {
+        margin-left: 2px;
         font-size: clamp(14px, 2.5vw, 18px);
+        background-color: rgba(255,255,255,1);
+        mix-blend-mode: normal;
+        filter: none;
+    }
+
+    .hero-section__sub-text::before, .hero-section__sub-text::after {
+        background-color: rgba(255,255,255,1);
     }
 
     .hero-section__main-text {
-        font-size: clamp(1rem, 15vw, 100vw);
+        font-size: clamp(1rem, 14vw, 100vw);
+        color: rgba(255,255,255,1);
+        mix-blend-mode: normal;
+        filter: none;
     }
 }
 
@@ -661,10 +679,10 @@ button {
 /* === Responsiveness: screen sizes < 428px === */
 @media only screen and (max-width: 428px) {
     .hero-section {
-        /* height: clamp(550px, 72vh, 100vh); */
+        height: clamp(500px, 66vh, 100vh);
         background-position: 100% 50%;
         background-attachment: scroll;
-        padding-bottom: 60px;
+        padding-top: 60px;
     }
 
     .hero-section__sub-text {
@@ -680,6 +698,9 @@ button {
 
 
 /* ========= SECTION DIVIDER: CLOUDS CSS ========= */
+
+
+
 .section-divider__clouds {
     margin-top: -340px;
     background-image: url("images/clouds.webp");
@@ -727,6 +748,8 @@ button {
 
 
 /* ========= PROJECTS SECTION CSS ========= */
+
+
 
 /* === LAYOUT === */
 .projects-section {
@@ -1031,7 +1054,8 @@ button {
     }
 
     .projects-section .col:last-child {
-        width: calc(100%);
+        width: 100%;
+        padding-right: 10%;
     }
 }
 
@@ -1098,7 +1122,7 @@ button {
 
      /* Column: Project Carousel */
      .projects-section .col:last-child {
-        width: 100%;
+        padding-right: 0px;
     }
 
     .project-carousel {
@@ -1151,6 +1175,8 @@ button {
 
 
 /* ========= ABOUT SECTION CSS ========= */
+
+
 
 /* === LAYOUT === */
 .about-section .container {
@@ -1419,6 +1445,8 @@ button {
 
 /* ========= SECTION DIVIDER: PAPER TEARS CSS ========= */
 
+
+
 .section-divider__paper-tear {
     margin-top: 0px;
     margin-bottom: -22px;
@@ -1460,6 +1488,8 @@ button {
 
 
 /* ========= CALL TO ACTION SECTION CSS ========= */
+
+
 
 /* === LAYOUT === */
 .cta-section {
@@ -1554,7 +1584,7 @@ button {
 /* === Responsiveness: MDPI Laptop === */
 @media only screen and (max-width: 1280px) {
     .cta-section .container {
-        max-width: 95%;
+        /* max-width: 95%; */
         width: 100%;
         padding: 60px 2% 60px calc(2% + 53px);
     }
@@ -1580,7 +1610,7 @@ button {
     }
 
     .cta-section .container {
-        padding: 120px 2% 120px calc(2% + 53px);
+        padding: 120px 2% 120px calc(2% + 33px);
     }
 
     .cta-section__sub-text {
@@ -1602,15 +1632,16 @@ button {
     }
 
     .cta-section .container {
-        padding: 90px 2% 90px calc(2% + 53px);
+        padding: 90px 0px;
     }
 
     .cta-section__sub-text {
         font-size: clamp(14px, 2.5vw, 18px);
+        margin-left: 2px;
     }
 
     .cta-section__main-text {
-        font-size: clamp(1rem, 15vw, 100vw);
+        font-size: clamp(1rem, 14vw, 100vw);
     }
 }
 
@@ -1619,7 +1650,7 @@ button {
 /* === Responsiveness: Screen Sizes < 428px === */
 @media only screen and (max-width: 428px) {
     .cta-section {
-        height: 600px;
+        /* height: 600px; */
     }
 
     .cta-section__sub-text {
@@ -1646,6 +1677,8 @@ button {
 
 
 /* ========= FOOTER SECTION CSS ========= */
+
+
 
 /* === LAYOUT === */
 
@@ -1753,7 +1786,11 @@ button {
     .footer > .container {
         column-gap: 0px;
         row-gap: 40px;
-        padding-bottom: 30px;
+        padding: 60px 0px 30px 0px;
+    }
+
+    .footer > .container::before {
+        display: none;
     }
 
     .footer .grid {
