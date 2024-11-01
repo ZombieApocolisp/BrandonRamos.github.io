@@ -1638,10 +1638,20 @@ button {
     .cta-section__sub-text {
         font-size: clamp(14px, 2.5vw, 18px);
         margin-left: 2px;
+        background-color: rgba(255,255,255,1);
+        mix-blend-mode: normal;
+        filter: none;
+    }
+
+    .cta-section__sub-text::before, .cta-section__sub-text::after {
+        background-color: rgba(255,255,255,1);
     }
 
     .cta-section__main-text {
         font-size: clamp(1rem, 14vw, 100vw);
+        color: rgba(255,255,255,1);
+        mix-blend-mode: normal;
+        filter: none;
     }
 }
 
