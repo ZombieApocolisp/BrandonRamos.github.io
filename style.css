@@ -52,7 +52,7 @@ header, section, footer, div {
     max-width: 1200px;
     width: 100%;
     margin: 0px auto;
-    padding: 60px 20px;
+    padding: 60px 5%;
     transition: all .3s ease;
 }
 
@@ -168,10 +168,6 @@ button {
     display: inline-block;
 }
 
-.t-only {
-    display: none;
-}
-
 .m-only {
     display: none;
 }
@@ -184,14 +180,16 @@ button {
         display: none;
     }
 
-    /* .t-only {
-        display: none;
-    } */
-
     .m-only {
         display: inline-block;
     }
 }
+
+
+
+
+
+
 
 
 
@@ -203,24 +201,7 @@ button {
 }
 
 .header .container {
-    max-width: 95%;
-    padding: 10px 0px;
-}
-
-.header .container::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 101px;
-    left: 45px;
-    width: 3px;
-    height: 100vh;
-    background-image: linear-gradient(
-        180deg,
-        rgba(255,255,255,1),
-        rgba(255,255,255,0)
-    );
-    transition: .3s;
+    padding: 10px 5%;
 }
 
 .header .grid {
@@ -401,14 +382,6 @@ button {
 
 /* === Responsiveness: Laptop with MDPI Display === */
 @media only screen and (max-width: 1280px) {
-    .header .container {
-        padding: 10px 2%;
-    }
-
-    .header .container::before {
-        left: calc(2% + 45px);
-    }
-
     .header .grid {
         grid-template-columns: 25% 1fr;
     }
@@ -416,14 +389,17 @@ button {
 
 
 
+/* === Responsiveness: Tablet === */
+@media only screen and (max-width: 1024px) {
+    .header .container {
+        padding: 10px 0px;
+    }
+}
+
+
+
 /* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
-    .header .container::before {
-        display: none;
-        height: 490px;
-        top: 99px;
-    }
-
     .main-menu {
         position: fixed;
         z-index: 1000;
@@ -490,14 +466,18 @@ button {
 
 
 
+
+
+
+
+
+
 /* ========= HERO SECTION CSS ========= */
-
-
 
 /* === LAYOUT === */
 .hero-section {
     height: 900px;
-    padding: 90px 0px 150px 0px;
+    padding: 120px 0px 120px 0px;
     background: #7f978c;
     background-image: url("images/hero-section__background-image--no-subject.webp");
     background-position: center center;
@@ -520,14 +500,11 @@ button {
     width: 100%;
     height: 100%;
     background-image: linear-gradient(
-        180deg,
+        25deg,
+        rgba(100,120,110,.75) 0%,
         rgba(255,255,255,0) 50%,
-        rgba(255,255,255,1) 100%
+        rgba(0,0,0,.25) 100%
     );
-}
-
-.hero-section .container {
-    width: 1100px;
 }
 
 .hero-section .grid {
@@ -535,7 +512,8 @@ button {
     grid-template-rows: 1fr;
 }
 
-/* --- Headers Styling --- */
+
+/* --- Headings Styling --- */
 .hero-section__sub-text {
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
@@ -544,7 +522,6 @@ button {
     line-height: 1em;
     word-spacing: 3px;
     position: relative;
-    margin-left: -3px;
     padding: 5px 10px;
     padding-right: 20px;
     box-shadow: 0px 0px 15px #00000066;
@@ -581,49 +558,19 @@ button {
     font-size: 136px;
     font-weight: 500;
     text-transform: uppercase;
+    line-height: 100px;
     text-shadow: 0px 0px 15px #00000066;
-    color: #e2c4a2;
+    color: #fcb89d;
     mix-blend-mode: overlay;
-    filter: brightness(110%) contrast(200%);
-}
-
-/* --- Spacer Element --- */
-.hero-section .spacer {
-    height: 100%;
+    filter: brightness(100%) contrast(200%);
 }
 
 
-
-/* === Responsiveness: MDPI Laptop === */
-@media only screen and (max-width: 1280px) {
-    .hero-section .container {
-        /* max-width: 95%; */
-        width: 100%;
-        padding: 60px 2% 60px calc(2% + 33px);
-    }
-
-    .hero-section__sub-text {
-        margin-left: -8px;
-        padding: 5px 15px;
-    }
-}
 
 /* === Responsiveness: Tablet === */
 @media only screen and (max-width: 1024px) {
     .hero-section {
-        background-position: 75% 50%;
-        /* height: clamp(600px, 75vh, 100vh); */
-    }
-
-    .hero-section::before {
-        background-image: linear-gradient(
-            180deg,
-            rgba(255,255,255,0) 75%,
-            rgba(255,255,255,1) 100%);
-    }
-
-    .hero-section .grid {
-        grid-template-columns: 1fr;
+        background-position: 80% 50%;
     }
 
     .hero-section__sub-text {
@@ -632,10 +579,7 @@ button {
 
     .hero-section__main-text {
         font-size: 124px;
-    }
-
-    .hero-section .col:last-child {
-        display: none;
+        line-height: 92px;
     }
 }
 
@@ -644,22 +588,14 @@ button {
 /* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     .hero-section {
-        background-position: 100% 50%;
-        background-attachment: scroll;
-        padding-bottom: 60px;
-        height: 600px;
-    }
-
-    .hero-section .container {
+        height: clamp(600px, 100vh, 100vh);
         padding: 60px 0px;
     }
 
     .hero-section__sub-text {
-        margin-left: 2px;
+        margin-left: 5px;
         font-size: clamp(14px, 2.5vw, 18px);
         background-color: rgba(255,255,255,1);
-        mix-blend-mode: normal;
-        filter: none;
     }
 
     .hero-section__sub-text::before, .hero-section__sub-text::after {
@@ -668,9 +604,7 @@ button {
 
     .hero-section__main-text {
         font-size: clamp(1rem, 14vw, 100vw);
-        color: rgba(255,255,255,1);
-        mix-blend-mode: normal;
-        filter: none;
+        line-height: clamp(48px, 11vw, 96px);
     }
 }
 
@@ -679,43 +613,49 @@ button {
 /* === Responsiveness: screen sizes < 428px === */
 @media only screen and (max-width: 428px) {
     .hero-section {
-        height: clamp(500px, 66vh, 100vh);
-        background-position: 100% 50%;
-        background-attachment: scroll;
-        padding-top: 60px;
+        height: clamp(600px, 66vh, 100vh);
+        background-position: 90% 50%;
+    }
+
+    .hero-section .container {
+        padding: 0px;
     }
 
     .hero-section__sub-text {
         font-size: clamp(11px, 2.5vw, 100vw);
+        margin-left: 2px;
         margin-right: 31px;
     }
 
     .hero-section__main-text {
-        font-size: clamp(1rem, 13vw, 100vw);
+        font-size: clamp(1rem, 14vw, 100vw);
+        line-height: clamp(36px, 11vw, 96px);
     }
 }
 
 
 
+
+
+
+
+
+
 /* ========= SECTION DIVIDER: CLOUDS CSS ========= */
-
-
-
 .section-divider__clouds {
-    margin-top: -340px;
-    background-image: url("images/clouds.webp");
-    background-position: top right;
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-    background-size: cover;
+    margin-top: -120px;
+    background-image: url("images/section-divider__dirt-path--white.webp");
+    background-position: top center;
+    background-repeat: repeat-x;
+    background-size: 2400px 600px;
 }
 
-.section-divider__clouds--flipped {
-    background-image: url("images/clouds--flipped-x.webp");
+.section-divider__clouds .container {
+    padding: 60px 0px;
 }
 
 .section-divider__clouds .spacer {
-    min-height: 240px;
+    min-height: 60px;
     transition: min-height .3s ease;
 }
 
@@ -724,11 +664,7 @@ button {
 /* === Responsiveness: Tablet === */
 @media only screen and (max-width: 1024px) {
     .section-divider__clouds {
-        margin-top: -230px;
-    }
-
-    .section-divider__clouds .spacer {
-        min-height: 110px;
+        background-size: 2000px 400px;
     }
 }
 
@@ -737,19 +673,23 @@ button {
 /* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
     .section-divider__clouds {
-        margin-top: -180px;
+        background-size: 1200px 300px;
     }
 
-    .section-divider__clouds .spacer {
-        min-height: 60px;
+    .section-divider__clouds .container {
+        padding: 30px 0px;
     }
 }
 
 
 
+
+
+
+
+
+
 /* ========= PROJECTS SECTION CSS ========= */
-
-
 
 /* === LAYOUT === */
 .projects-section {
@@ -799,12 +739,13 @@ button {
     z-index: 0;
 }
 
+.projects-section .container {
+    padding: 120px 5%;
+}
+
 .projects-section .grid {
     grid-template-columns: 33.33333% 66.66666%;
-    grid-template-rows: 1fr;
     column-gap: 20px;
-    padding-top: 120px;
-    padding-bottom: 120px;
     z-index: 1;
 }
 
@@ -913,21 +854,6 @@ button {
     z-index: 1;
 }
 
-/* In case I want to reuse for later */
-/* .project_item .item {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-    width: 100%;
-    font-family: "Teko", sans-serif;
-    text-transform: capitalize;
-    font-size: 22px;
-    padding: 0px;
-    color: #000;
-} */
-
 .project_item .item {
     display: flex;
     flex-flow: column nowrap;
@@ -944,13 +870,6 @@ button {
     padding: 0px;
     z-index: 2;
 }
-
-/* .project_item .item:hover {
-    font-size: 52px;
-    font-weight: 500;
-    text-shadow: 0px 0px 10px #00000033;
-    color: var(--highlight-color);
-} */
 
 .mockup {
     width: 100%;
@@ -970,27 +889,6 @@ button {
     display: block;
     text-align: center;
 }
-
-
-
-/* Project Carousel - Current Slide/Item */
-/* .project_item.current-item {
-    z-index: 2;
-} */
-
-/* .project_item.current-item .item {
-    font-family: "Teko", sans-serif;
-    font-size: 52px;
-    font-weight: 700;
-    text-transform: capitalize;
-    text-shadow: 0px 0px 2px #00000020;
-    color: var(--highlight-color);
-    transition-delay: font-family .3s, font-size .3s, font-weight .3s, text-transform .3s text-shadow .3s;
-} */
-
-/* .project_item.current-item .item:hover .mockup {
-    transform: scale(1.1);
-} */
 
 
 
@@ -1019,28 +917,20 @@ button {
 /* === RESPONSIVENESS: TABLET === */
 @media only screen and (max-width: 1024px) {
     .projects-section > .container {
-        max-width: 100%;
+        padding: 120px 0px;
     }
 
     .projects-section .grid {
         grid-template-columns: 40% 60%;
         grid-template-rows: 1fr;
-        column-gap: 40px;
     }
 
     .projects-section .col {
         flex-wrap: wrap;
     }
 
-    .projects-section .col:first-child {
-        width: calc(100%);
-    }
-
     .projects-section .col:first-child::after {
-        right: unset;
-        left: 0;
-        width: 50vw;
-        min-width: 600px;
+        min-width: 610px;
         background-image: linear-gradient(
             90deg,
             #ffffff 0%,
@@ -1052,17 +942,16 @@ button {
     .compass {
         right: -180px;
     }
-
-    .projects-section .col:last-child {
-        width: 100%;
-        padding-right: 10%;
-    }
 }
 
 /* === RESPONSIVENESS: MOBILE === */
 @media only screen and (max-width: 767px) {
     .projects-section {
         background-attachment: fixed;
+    }
+
+    .projects-section > .container {
+        padding: 0px;
     }
 
     .projects-section .grid {
@@ -1075,56 +964,40 @@ button {
     .projects-section::before {
         background-image: linear-gradient(
             180deg,
-            rgba(255,255,255,0.66) 0%,
+            rgba(255,255,255,.75) 0%,
             rgba(255,255,255,1) 100%);
     }
 
     .projects-section::after {
         display: none;
-        background-image: linear-gradient(
-            90deg,
-            rgba(255,255,255,0.33) 0%,
-            rgba(255,255,255,0.5) 50%,
-            rgba(255,255,255,0.33) 100%);
-    }
-
-    .projects-section > .container {
-        padding-top: 0px;
-        padding-bottom: 0px;
     }
 
     /* Column: Compass Image */
     .projects-section .col:first-child {
         align-items: center;
-        width: 100%;
     }
 
     .compass {
         position: static;
-        height: clamp(150px, 80vw, 300px);
-        width: clamp(150px, 80vw, 300px);
+        height: clamp(50vw, 300px, 90vw);
+        width: clamp(50vw, 300px, 90vw);
         margin-top: 0px;
-        margin-bottom: -170px;
+        margin-bottom: -200px;
     }
 
     .projects-section .col:first-child::after {
         top: 0px;
-        left: 0px;
-        bottom: 0px;
+        right: unset;
+        height: clamp(25rem, 35rem, 500px);
         width: 100vw;
         min-width: unset;
-        margin-top: -120px;
         background-image: linear-gradient(
             180deg,
             #ffffff00 0%,
-            #ffffff 75%);
+            #ffffff 55%);
     }
 
      /* Column: Project Carousel */
-     .projects-section .col:last-child {
-        padding-right: 0px;
-    }
-
     .project-carousel {
         height: 300px;
     }
@@ -1137,7 +1010,6 @@ button {
 
     .project_item {
         height: 100%;
-        padding: 0px 20px;
     }
 
     .item {
@@ -1163,44 +1035,29 @@ button {
     }
 }
 
-@media only screen and (max-width: 428px) {
-    /* .projects-section .col:first-child::after {
-        background-image: radial-gradient(
-            circle at center,
-            #ffffff 25%,
-            #ffffff00 75%);
-    } */
-}
+
+
+
+
+
 
 
 
 /* ========= ABOUT SECTION CSS ========= */
 
-
-
 /* === LAYOUT === */
 .about-section .container {
-    min-height: 800px;
-    /* background-image: url("images/coffee-stained-paper.webp"); */
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 2;
+    padding: 0px 5%;
 }
 
 .about-section .grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    column-gap: 30px;
-    row-gap: 20px;
+    column-gap: 90px;
 }
 
 .about-section .col.flex {
     justify-content: space-between;
-}
-
-.journal {
-    padding: 40px 20px 40px 30px;
 }
 
 /* --- Headers Styling --- */
@@ -1217,7 +1074,7 @@ button {
 }
 
 /* --- Torn Paper Elements on Small Devices --- */
-.about-section .torn-paper {
+/* .about-section .torn-paper {
     display: none;
     position: relative;
     width: 100%;
@@ -1234,7 +1091,7 @@ button {
 .about-section .torn-paper .spacer {
     min-height: 50px;
     transition: min-height .3s ease;
-}
+} */
 
 /* --- Info Box Styling --- */
 .about-section .infobox.flex {
@@ -1258,7 +1115,7 @@ button {
 }
 
 /* === Responsiveness: Coffee Stained Paper Image === */
-@media only screen and (max-width:1200px) {
+/* @media only screen and (max-width:1200px) {
     .about-section .container {
         min-height: 400px;
         background-image: none;
@@ -1303,16 +1160,19 @@ button {
     .about-section .torn-paper {
         display: block;
     }
-}
+} */
 
 /* === Responsiveness: Tablet === */
 @media only screen and (max-width: 1024px) {
-    .about-section .col {
-        background-position: center center;
+    .about-section .container {
+        padding: 0px;
+    }
+
+    .about-section .grid {
+        column-gap: 60px;
     }
 
     .journal__text {
-        text-align: center;
         font-size: 16px;
     }
 
@@ -1354,37 +1214,15 @@ button {
         background-image: linear-gradient(
             180deg,
             rgba(255,255,255,1) 0%,
-            rgba(255,255,255,0.66) 100%);
-        z-index: 0;
-    }
-
-    .about-section::after {
-        content: "";
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(
-            90deg,
-            rgba(255,255,255,0.33) 0%,
-            rgba(255,255,255,0.66) 50%,
-            rgba(255,255,255,0.33) 100%);
+            rgba(255,255,255,0.75) 100%);
         z-index: 0;
     }
 
     .about-section .container {
-        padding-top: 0px;
-    }
-
-    .about-section .grid {
-        grid-template-columns: 1fr;
-        row-gap: 60px;
+        padding: 30px 0px 60px 0px;
     }
 
     .about-section .col {
-        text-align: center;
         background-position: center center;
     }
 
@@ -1398,10 +1236,6 @@ button {
 
     .about-section .col:last-child {
         order: 1;
-    }
-
-    .journal {
-        padding: 40px 20px 0px 20px;
     }
 
     .journal__main-title {
@@ -1434,45 +1268,33 @@ button {
     .infobox-content__text {
         font-size: 14px;
     }
-
-    .about-section .torn-paper {
-        display: block;
-        margin-bottom: -24px;
-    }
 }
 
 
 
-/* ========= SECTION DIVIDER: PAPER TEARS CSS ========= */
 
 
 
-.section-divider__paper-tear {
+
+
+
+/* ========= SECTION DIVIDER: Clouds - Bottom CSS ========= */
+.section-divider__clouds.bottom {
     margin-top: 0px;
-    margin-bottom: -22px;
-    background-image: url("images/paper-tear.webp");
-    background-position: center bottom;
-    background-attachment: scroll;
+    margin-bottom: -120px;
+    background-image: url("images/section-divider__dirt-path--white.webp");
+    background-position: bottom center;
     background-repeat: repeat-x;
-    background-size: 1200px;
+    background-size: 2400px 600px;
     z-index: 1;
-}
-
-.section-divider__paper-tear .container {
-    padding: 0px 0px 0px 0px;
-}
-
-.section-divider__paper-tear .spacer {
-    min-height: 50px;
-    transition: min-height .3s ease;
 }
 
 
 
 /* === Responsiveness: Tablet === */
 @media only screen and (max-width: 1024px) {
-    .section-divider__paper-tear {
-        margin-bottom: -18px;
+    .section-divider__clouds.bottom {
+        background-size: 2000px 400px;
     }
 }
 
@@ -1480,21 +1302,25 @@ button {
 
 /* === Responsiveness: Mobile === */
 @media only screen and (max-width: 767px) {
-    .section-divider__paper-tear {
-        margin-bottom: -20px;
+    .section-divider__clouds.bottom {
+        background-size: 1200px 300px;
     }
 }
 
 
 
+
+
+
+
+
+
 /* ========= CALL TO ACTION SECTION CSS ========= */
-
-
 
 /* === LAYOUT === */
 .cta-section {
-    height: clamp(600px, 100vh, 100vh);
-    padding: 0px 0px 60px 0px;
+    height: 900px;
+    padding: 120px 0px 120px 0px;
     background: #7f978c;
     background-image: url("images/cta-section__background-image.webp");
     background-position: center center;
@@ -1508,6 +1334,11 @@ button {
     align-items: center;
 }
 
+.cta-section .grid {
+grid-template-columns: 1fr;
+grid-template-rows: 1fr;
+}
+
 .cta-section::before {
     content: "";
     display: block;
@@ -1518,26 +1349,20 @@ button {
     height: 100%;
     background-image: linear-gradient(
         180deg,
-        rgba(0,0,0,0.2) 0%,
-        rgba(255,255,255,0) 75%,
-        rgba(255,255,255,1) 100%
+        rgba(0,0,0,.2) 0%,
+        rgba(255,255,255,0) 100%
     );
 }
 
-.cta-section .container {
-    width: 1100px;
-}
-
-/* --- Headers Styling --- */
+/* --- Headings Styling --- */
 .cta-section__sub-text {
-    position: relative;
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
     font-weight: 400;
     text-transform: uppercase;
     line-height: 1em;
     word-spacing: 3px;
-    margin-left: -3px;
+    position: relative;
     padding: 5px 10px;
     padding-right: 20px;
     box-shadow: 0px 0px 15px #00000066;
@@ -1574,25 +1399,11 @@ button {
     font-size: 136px;
     font-weight: 500;
     text-transform: uppercase;
+    line-height: 100px;
     text-shadow: 0px 0px 15px #00000066;
-    color: #e2c4a2;
+    color: #fcb89d;
     mix-blend-mode: overlay;
-    filter: brightness(110%) contrast(200%);
-}
-
-
-/* === Responsiveness: MDPI Laptop === */
-@media only screen and (max-width: 1280px) {
-    .cta-section .container {
-        /* max-width: 95%; */
-        width: 100%;
-        padding: 60px 2% 60px calc(2% + 53px);
-    }
-
-    .cta-section__sub-text {
-        margin-left: -8px;
-        padding: 5px 15px;
-    }
+    filter: brightness(100%) contrast(200%);
 }
 
 
@@ -1600,17 +1411,7 @@ button {
 /* === Responsiveness: Tablet === */
 @media only screen and (max-width: 1024px) {
     .cta-section {
-        background-position: 77% center;
-        background-attachment: scroll;
-        height: clamp(600px, 75vh, 100vh);
-    }
-
-    .cta-section.flex {
-        justify-content: flex-start;
-    }
-
-    .cta-section .container {
-        padding: 120px 2% 120px calc(2% + 33px);
+        background-position: 80% 50%;
     }
 
     .cta-section__sub-text {
@@ -1619,6 +1420,7 @@ button {
 
     .cta-section__main-text {
         font-size: 124px;
+        line-height: 92px;
     }
 }
 
@@ -1636,11 +1438,9 @@ button {
     }
 
     .cta-section__sub-text {
+        margin-left: 5px;
         font-size: clamp(14px, 2.5vw, 18px);
-        margin-left: 2px;
         background-color: rgba(255,255,255,1);
-        mix-blend-mode: normal;
-        filter: none;
     }
 
     .cta-section__sub-text::before, .cta-section__sub-text::after {
@@ -1649,9 +1449,7 @@ button {
 
     .cta-section__main-text {
         font-size: clamp(1rem, 14vw, 100vw);
-        color: rgba(255,255,255,1);
-        mix-blend-mode: normal;
-        filter: none;
+        line-height: clamp(48px, 11vw, 96px);
     }
 }
 
@@ -1659,36 +1457,32 @@ button {
 
 /* === Responsiveness: Screen Sizes < 428px === */
 @media only screen and (max-width: 428px) {
-    /* .cta-section {
-        height: 600px;
-    } */
+    .cta-section {
+        height: clamp(600px, 66vh, 100vh);
+        background-position: 75% 50%;
+    }
 
     .cta-section__sub-text {
         font-size: clamp(11px, 2.5vw, 100vw);
+        margin-left: 2px;
         margin-right: 31px;
     }
 
     .cta-section__main-text {
-        font-size: clamp(1rem, 13vw, 100vw);
+        font-size: clamp(1rem, 14vw, 100vw);
+        line-height: clamp(36px, 11vw, 96px);
     }
 }
 
-/* === Responsiveness: Screen Sizes < 320px === */
-@media only screen and (max-width: 320px) {
-    .cta-section::before {
-        background-image: linear-gradient(
-        180deg,
-        rgba(0,0,0,0.1) 0%,
-        rgba(255,255,255,0) 75%,
-        rgba(255,255,255,1) 100%);
-    }
-}
+
+
+
+
+
 
 
 
 /* ========= FOOTER SECTION CSS ========= */
-
-
 
 /* === LAYOUT === */
 
@@ -1699,27 +1493,6 @@ button {
 
 .footer .grid {
     grid-template-columns: 1fr 1fr 1fr;
-}
-
-.footer > .container {
-    max-width: 95%;
-    padding: 60px 0px;
-}
-
-.footer > .container::before {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 210px;
-    left: 45px;
-    width: 3px;
-    height: calc(100vh + 20px);
-    background-image: linear-gradient(
-        180deg,
-        rgba(255,255,255,1),
-        rgba(255,255,255,0)
-    );
-    transition: .3s;
 }
 
 .footer .col {
@@ -1779,14 +1552,7 @@ button {
 
 /* === Responsiveness: Laptop === */
 @media only screen and (max-width: 1280px) {
-    .footer > .container {
-        padding: 60px 2%;
-    }
-
-    .footer .container::before {
-        height: calc(100vh + 210px);
-        left: calc(2% + 45px);
-    }
+    
 }
 
 
