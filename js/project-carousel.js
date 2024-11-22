@@ -50,7 +50,7 @@ function rotateCompass(counterClockwise, clockwise) {
 
 // Prev Button Functionality
 function goToPrevItem() {
-    document.getElementById('carousel-button').disabled = true;
+    prevButton.disabled = true;
 
     // Removes the current, prev, and next classes from the slides
     projectItems.forEach(slide => {
@@ -133,14 +133,14 @@ function goToPrevItem() {
 
     addClasses(activeSlide, prevSlide, nextSlide);
 
-    document.getElementById('carousel-button').disabled = false;
+    prevButton.disabled = false;
 };
 
 
 
 // Next Button Functionality
 function goToNextItem() {
-    document.getElementById('carousel-button').disabled = true;
+    nextButton.disabled = true;
 
     // Removes the current, prev, and next classes from the slides
     projectItems.forEach(slide => {
@@ -223,7 +223,7 @@ function goToNextItem() {
 
     addClasses(activeSlide, prevSlide, nextSlide);
 
-    document.getElementById('carousel-button').disabled = false;
+    nextButton.disabled = false;
 };
 
 
